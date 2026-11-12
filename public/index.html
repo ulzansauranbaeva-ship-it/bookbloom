@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookBloom: Книги с новой историей</title>
+  <meta name="description" content="BookBloom — прочитанные книги по доступным ценам (максимум 1 500 ₸). Книги с новой историей. Экономим деньги — бережём леса.">
+  <meta property="og:title" content="BookBloom: книги с новой историей">
+  <meta property="og:description" content="Прочитанные книги по доступным ценам (максимум 1 500 ₸). Экологичный проект школьницы из Астаны.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <!-- ЗНАЧОК САЙТА (favicon): вставьте сюда ссылку на свою картинку -->
+  <link rel="icon" href="">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="logo"><span class="logo-icon"><svg class="logo-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="BookBloom">
+        <path d="M12 6.4C10.05 5.05 7.5 4.3 4.9 4.3c-0.6 0-1.05 0.48-1.05 1.05v11.65c0 0.62 0.52 1.1 1.14 1.05 2.42-0.17 4.75 0.5 6.6 1.9 0.25 0.19 0.6 0.19 0.85 0 1.85-1.4 4.18-2.07 6.6-1.9 0.62 0.05 1.14-0.43 1.14-1.05V5.35c0-0.57-0.45-1.05-1.05-1.05-2.6 0-5.15 0.75-7.13 2.1Z" fill="#fff"/>
+        <path d="M12 6.4V19.3" stroke="#a9412d" stroke-width="0.9" opacity="0.5"/>
+        <path d="M12 2.5c1.55 0.55 2.35 1.9 1.85 3.5-1.5-0.05-2.6-1.05-1.85-3.5Z" fill="#7fae6f"/>
+      </svg></span><span class="logo-text" data-i18n="logo">BookBloom</span></div>
+      <button class="nav-toggle" id="nav-toggle-btn" onclick="toggleMobileNav()" aria-label="Меню"><span class='icon icon-menu' role='img' aria-label='меню'></span></button>
+    </div>
+    <nav id="main-nav">
+      <a href="#about" onclick="closeMobileNav()" data-i18n="nav_about">О проекте</a>
+      <a href="#creator" onclick="closeMobileNav()" data-i18n="nav_creator">О создателе</a>
+      <a href="#eco-tips" onclick="closeMobileNav()" data-i18n="nav_eco">Эко-советы</a>
+      <a href="#calculator" onclick="closeMobileNav()" data-i18n="nav_calc">Экономика</a>
+      <a href="#catalog" onclick="closeMobileNav()" data-i18n="nav_catalog">Каталог</a>
+      <a href="#quiz" onclick="closeMobileNav()" data-i18n="nav_quiz">Викторины</a>
+      <a href="#proof" onclick="closeMobileNav()" data-i18n="nav_proof">Подтверждение продаж</a>
+      <a href="#faq" onclick="closeMobileNav()" data-i18n="nav_faq">FAQ</a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('ru')" id="lang-ru">RU</button>
+        <button class="lang-btn" onclick="setLanguage('en')" id="lang-en">EN</button>
+      </div>
+      <button class="cart" onclick="openCart()" aria-label="Корзина">
+        <span class='icon icon-cart' role='img' aria-label='корзина'></span> <span data-i18n="cart">Корзина</span> <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div>
+      <span class="eyebrow" data-i18n="hero_eyebrow">Экологический проект Аяны</span>
+      <h1 data-i18n="hero_title">Книги с <em>историей</em></h1>
+      <p class="hero-slogan" data-i18n="hero_slogan">Книги с новой историей. Экономим деньги — бережём леса.</p>
+      <p class="hero-text" data-i18n="hero_text">
+        Каждую из этих книг я бережно и с любовью прочитала сама. Сейчас я учусь в Назарбаев Интеллектуальной школе (НИШ) в Астане по международной программе IB. Все книги, представленные здесь, лично прочитаны мною, и я готова обсудить каждую из них, растолковать сюжет и поделиться впечатлениями после вашего прочтения — это будет замечательный опыт обмена мнениями! Теперь я делюсь ими, чтобы беречь природу Казахстана и помогать другим читать доступно.
+      </p>
+    </div>
+    <div class="hero-art">
+      <div class="book b3" data-i18n="hero_book3">Д. Киз — Цветы для Элджернона</div>
+      <div class="book b2" data-i18n="hero_book2">Гарри Поттер и Философский камень</div>
+      <div class="book b1" data-i18n="hero_book1">Е. Замятин — Мы</div>
+      <div class="cup"><span class='icon icon-tea' role='img' aria-label='чай'></span></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <strong id="stat-visits">—</strong>
+      <span data-i18n="stat_visits">Заходили на сайт</span>
+    </div>
+    <div class="stat-item">
+      <strong id="stat-inquiries">—</strong>
+      <span data-i18n="stat_inquiries">Оформили заказ через сайт</span>
+    </div>
+    <div class="stat-item">
+      <strong id="stat-sold">0</strong>
+      <span data-i18n="stat_sold">Книг куплено (подтверждено)</span>
+    </div>
+    <div class="stat-item">
+      <strong id="stat-catalog">32</strong>
+      <span data-i18n="stat_catalog">Книг в каталоге</span>
+    </div>
+    <div class="stat-item">
+      <strong id="stat-trees">0</strong>
+      <span data-i18n="stat_trees">Спасено деревьев</span>
+    </div>
+  </div>
+  <div class="stats-note" data-i18n="stats_note">
+    Счётчики «Заходили на сайт» и «Оформили заказ» считаются автоматически. «Книг куплено» — только подтверждённые продажи, проверенные вручную.
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2 data-i18n="about_title">Осознанное чтение — забота о будущем</h2>
+      <p data-i18n="about_p1">
+        Меня зовут <strong>Алдибек Аяна Бауыржанқызы</strong>. Я ученица НИШ в Астане, безумно обожаю литературу, математику, биологию и бережно отношусь к природе Казахстана.
+      </p>
+      <p data-i18n="about_p2">
+        Все книги, представленные в каталоге, прочитаны мною лично — большинство из них ровно один раз, в прекрасном состоянии. Некоторые книги из нашей домашней коллекции уже долгое время находятся у нас, что также отражено в описании. Каждая книга имеет свою цену — не более 1 500 тенге, а многие стоят значительно меньше. Я готова обсудить каждую книгу, растолковать сюжет и поделиться мыслями после вашего прочтения — обмен впечатлениями станет отличным опытом!
+      </p>
+      <p data-i18n="about_p3">
+        Прочитав потрясающие классические романы, а также собрав все 7 томов саги о <strong>Гарри Поттере</strong>, я решила дать этим книгам вторую жизнь. Покупая их, вы помогаете друг другу экономить бюджет и спасаете планету от излишней вырубки лесов.
+      </p>
+      <p style="font-size: 14px; color: #817970; margin-top: 25px;">
+        <span class='icon icon-phone' role='img' aria-label='телефон'></span> <span data-i18n="about_contacts">Контакты Аяны</span>: <strong>+7 707 040 3611</strong><br>
+        <span class='icon icon-email' role='img' aria-label='почта'></span> <span data-i18n="about_email">Email</span>: <strong>aldibek.a@nisa.edu.kz</strong><br>
+        <span class='icon icon-parentwoman' role='img' aria-label='родитель'></span> <span data-i18n="about_parent">Родитель-координатор</span>: <strong>Сауранбаева Улжан Сатыбалдиевна</strong>
+      </p>
+    </div>
+    <div class="features">
+      <p>
+        <b><span class='icon icon-tree' role='img' aria-label='дерево'></span></b>
+        <span>
+          <strong data-i18n="feat1_title">Сохранение экологии</strong><br>
+          <span data-i18n="feat1_text">Повторное использование книг снижает выбросы СО₂ при производстве бумаги и оберегает леса Казахстана от вырубки.</span>
+        </span>
+      </p>
+      <p>
+        <b><span class='icon icon-flyingmoney' role='img' aria-label='деньги'></span></b>
+        <span>
+          <strong data-i18n="feat2_title">Доступные цены</strong><br>
+          <span data-i18n="feat2_text">Каждая книга стоит не более 1 500 ₸ — значительно дешевле новых книг в книжных магазинах. Экономия до 60% бюджета!</span>
+        </span>
+      </p>
+      <p>
+        <b><span class='icon icon-gem' role='img' aria-label='ценность'></span></b>
+        <span>
+          <strong data-i18n="feat3_title">Отличное качество</strong><br>
+          <span data-i18n="feat3_text">Большинство книг прочитаны аккуратно, один раз. Страницы чистые, обложки в отличном состоянии. Некоторые книги из давней домашней коллекции.</span>
+        </span>
+      </p>
+      <p>
+        <b><span class='icon icon-chat' role='img' aria-label='сообщение'></span></b>
+        <span>
+          <strong data-i18n="feat4_title">Личное обсуждение</strong><br>
+          <span data-i18n="feat4_text">Все книги лично прочитаны Аяной. Она готова обсудить каждую книгу, растолковать сюжет и поделиться впечатлениями — это создаёт замечательный опыт обмена мнениями!</span>
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- CREATOR BIO -->
+  <section class="author-bio" id="creator">
+    <div class="bio-container">
+      <div class="bio-header">
+        <span class="eyebrow" data-i18n="creator_eyebrow">Познакомьтесь с инициатором книжного круга</span>
+        <h2 data-i18n="creator_title">О создателе проекта</h2>
+      </div>
+      <div class="bio-grid">
+        <div class="profile-card">
+          <div class="profile-img-container">
+            <img id="ayana-pic" alt="Алдибек Аяна" src="images/ayana.jpg">
+          </div>
+          <div class="profile-name">Алдибек Аяна<br>Бауыржанқызы</div>
+          <p style="font-size: 13px; color: #665f56; margin-top: 8px;" data-i18n="creator_status">Ученица НИШ, Астана</p>
+        </div>
+        <div class="bio-content">
+          <div class="bio-text">
+            <p data-i18n="bio_p1">
+              Привет! Я рада приветствовать вас в моём книжном круге. Я родилась <strong>9 июня 2011 года</strong> в прекрасном городе <strong>Алматы</strong>. Позже моя жизнь была связана со многими красивыми уголками Казахстана, подарив мне верных друзей, гибкость мышления и стремление к учёбе.
+            </p>
+            <h4 style="font-family: 'Times New Roman', serif; font-size: 20px; font-weight: normal; color: var(--rust); margin-top: 25px; margin-bottom: 12px;" data-i18n="bio_edu_title"><span class='icon icon-map' role='img' aria-label='карта'></span> Путь в образовании:</h4>
+            <ul class="timeline">
+              <li data-i18n="bio_edu1">
+                <strong>Начальные классы</strong> — жила в южном городе <strong>Таразе</strong> и получала первые знания в знаменитой <strong>школе-гимназии №40</strong>, одной из лучших школ Жамбылской области.
+              </li>
+              <li data-i18n="bio_edu2">
+                <strong>Средние классы</strong> — после переезда семьи в Астану училась в современной <strong>школе-гимназии №72</strong>.
+              </li>
+              <li data-i18n="bio_edu3">
+                <strong>Старшие классы</strong> — успешно сдав вступительные экзамены, поступила в престижную <strong>Назарбаев Интеллектуальную школу (НИШ) Астаны</strong> с широкопрофильным образованием и международным дипломом IB.
+              </li>
+            </ul>
+            <p data-i18n="bio_p2">
+              В школе мои любимые предметы — <strong>математика и биология</strong>. Я хочу связать своё будущее с наукой и готовилась к международным экзаменам <strong>SAT</strong> и <strong>IELTS</strong>.
+            </p>
+            <p data-i18n="bio_p3">
+              Этим летом я прочитала четыре замечательные книги: <strong>«Мы» Евгения Замятина</strong>, <strong>«Над пропастью во ржи» Дж. Д. Сэлинджера</strong>, <strong>«Отцы и дети» Ивана Тургенева</strong> и <strong>«Герой нашего времени» Михаила Лермонтова</strong>. Книги, которые я читаю, включают классику, рекомендованную учителями НИШ для внеклассного чтения, детскую литературу и современные романы. Все они пополняют мой книжный круг!
+            </p>
+          </div>
+          <h4 style="font-family: 'Times New Roman', serif; font-size: 20px; font-weight: normal; color: var(--ink); margin-top: 30px; margin-bottom: 15px;" data-i18n="bio_hobbies_title"><span class='icon icon-sparkle' role='img' aria-label='звёздочка'></span> Мои интересы и увлечения:</h4>
+          <div class="hobbies-grid">
+            <div class="hobby-card">
+              <span class="hobby-icon"><span class='icon icon-chess' role='img' aria-label='шахматы'></span></span>
+              <div>
+                <strong data-i18n="hobby1_title">Шахматы</strong>
+                <p data-i18n="hobby1_text">Два года занималась на профессиональных курсах по шахматам, развивая тактическое мышление.</p>
+              </div>
+            </div>
+            <div class="hobby-card">
+              <span class="hobby-icon"><span class='icon icon-art' role='img' aria-label='рисование'></span></span>
+              <div>
+                <strong data-i18n="hobby2_title">Рисование</strong>
+                <p data-i18n="hobby2_text">Люблю рисовать в тишине после напряжённой учёбы в НИШ.</p>
+              </div>
+            </div>
+            <div class="hobby-card">
+              <span class="hobby-icon"><span class='icon icon-swim' role='img' aria-label='плавание'></span></span>
+              <div>
+                <strong data-i18n="hobby3_title">Плавание</strong>
+                <p data-i18n="hobby3_text">Спортивные тренировки по плаванию закалили мой характер и подарили бодрость.</p>
+              </div>
+            </div>
+            <div class="hobby-card">
+              <span class="hobby-icon"><span class='icon icon-globe' role='img' aria-label='мир'></span></span>
+              <div>
+                <strong data-i18n="hobby4_title">Эко-активизм</strong>
+                <p data-i18n="hobby4_text">Убеждена, что даже маленькое дело может спасти планету. Мой проект — реальный шаг к спасению деревьев.</p>
+              </div>
+            </div>
+          </div>
+          <p style="font-size: 14px; color: #665f56; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line);">
+            <strong data-i18n="trusted_person_title">Доверенное лицо проекта</strong><br>
+            <span data-i18n="trusted_person_text">Доверенным лицом Аяны является её тётя — <strong>Сауранбаева Улжан Сатыбалдиевна</strong>. Её номер телефона, контакты и прямая ссылка на WhatsApp указаны в конце этого сайта — там же можно заказать книгу или уточнить любую необходимую информацию.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- READING NOW -->
+  <section class="reading-now-section">
+    <div class="reading-now-card">
+      <span class="reading-now-emoji"><span class='icon icon-openbook' role='img' aria-label='открытая книга'></span></span>
+      <div>
+        <span class="eyebrow" data-i18n="reading_now">Сейчас читаю</span>
+        <h3 style="margin: 6px 0; font: normal 22px 'Times New Roman', serif;" data-i18n="reading_now_book">«Идиот» — Ф. М. Достоевский</h3>
+        <p style="margin: 0; font-size: 14px; color: #554e45;" data-i18n="reading_now_text">Как только дочитаю — добавлю краткий обзор и, возможно, новую книгу в каталог. Заглядывайте почаще!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ECO TIPS -->
+  <section class="eco-tips-section" id="eco-tips">
+    <div class="bio-container">
+      <div class="bio-header">
+        <span class="eyebrow" style="color: var(--green-dark);" data-i18n="eco_eyebrow">Делаем планету чище вместе</span>
+        <h2 data-i18n="eco_title">Эко-советы от Аяны <span class='icon icon-leaf' role='img' aria-label='эко'></span></h2>
+      </div>
+      <div class="eco-tips-grid">
+        <div class="eco-tip-card">
+          <div class="eco-tip-icon"><span class='icon icon-box' role='img' aria-label='коробка'></span></div>
+          <h3 data-i18n="eco1_title">Сортируйте макулатуру</h3>
+          <p data-i18n="eco1_text">Не выбрасывайте исписанные школьные тетради и коробки вместе с пищевыми отходами. Собирайте их отдельно и сдавайте в пункты приёма сырья — из них создадут новую бумагу!</p>
+        </div>
+        <div class="eco-tip-card">
+          <div class="eco-tip-icon"><span class='icon icon-bags' role='img' aria-label='покупки'></span></div>
+          <h3 data-i18n="eco2_title">Пользуйтесь шоперами</h3>
+          <p data-i18n="eco2_text">Откажитесь от постоянных покупок пластиковых пакетов. Замените их стильным тканевым шопером или рюкзаком — это снижает количество неразлагаемого пластика.</p>
+        </div>
+        <div class="eco-tip-card">
+          <div class="eco-tip-icon"><span class='icon icon-refresh' role='img' aria-label='обновить'></span></div>
+          <h3 data-i18n="eco3_title">Дарите книгам вторую жизнь</h3>
+          <p data-i18n="eco3_text">Покупка прочитанных книг — бережное отношение к природе. На одну новую книгу тратится древесина и вода. Повторное чтение сохраняет деревья!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="interactive-section" id="calculator">
+    <div class="interactive-card">
+      <h2 data-i18n="calc_title"><span class='icon icon-money' role='img' aria-label='деньги'></span> Финансовая выгода</h2>
+      <p data-i18n="calc_intro">Давайте наглядно сравним затраты на покупку бумажных книг в обычных книжных магазинах и в нашем книжном круге:</p>
+      <div class="price-table-wrap">
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th data-i18n="calc_th1">Где приобретаем книгу</th>
+            <th data-i18n="calc_th2">Состояние книги</th>
+            <th data-i18n="calc_th3">Цена за один том</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-i18n="calc_row1_a">Обычные книжные магазины</td>
+            <td data-i18n="calc_row1_b">Абсолютно новая книга</td>
+            <td class="danger">3 800 ₸</td>
+          </tr>
+          <tr>
+            <td data-i18n="calc_row2_a">BookBloom</td>
+            <td data-i18n="calc_row2_b">Бережно прочитана 1 раз</td>
+            <td class="highlight" data-i18n="calc_row2_c">до 1 500 ₸</td>
+          </tr>
+          <tr style="background: rgba(169, 65, 45, 0.05);">
+            <td><strong data-i18n="calc_row3_a">Ваша чистая выгода</strong></td>
+            <td><strong data-i18n="calc_row3_b">Экономия бюджета</strong></td>
+            <td style="color: #2e6930; font-weight: bold; font-size: 15px; white-space: nowrap;" data-i18n="calc_row3_c"><span class='icon icon-fire' role='img' aria-label='экономия'></span> Вы экономите до 2 300 ₸!</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <p style="margin-top: 15px; font-size: 14px; color: #686057;" data-i18n="calc_footer">
+        Выбирая книгу у Аяны, вы сохраняете в семейном бюджете значительные средства. Все книги стоят не более 1 500 ₸, а многие — дешевле. Это позволяет сэкономить до 60% по сравнению с покупкой новых книг!
+      </p>
+    </div>
+    <div class="interactive-card" style="background: var(--cream);">
+      <h2 data-i18n="calc2_title"><span class='icon icon-tree' role='img' aria-label='дерево'></span> Интерактивный калькулятор</h2>
+      <p data-i18n="calc2_intro">Подвигайте ползунок ниже, чтобы мгновенно увидеть вашу финансовую и экологическую пользу:</p>
+      <div style="background: white; padding: 20px; border-radius: 8px; border: 1px solid var(--line);">
+        <label><strong><span data-i18n="calc2_count">Планирую приобрести книг:</span> <span id="selected-count" style="color: var(--rust); font-size: 20px;">1</span></strong></label>
+        <input type="range" id="book-range" class="calc-slider" min="1" max="32" value="1">
+        <div class="calc-row">
+          <span data-i18n="calc2_row1">Сумма в книжном круге Аяны:</span>
+          <strong id="ayana-price" style="color: #2e6930;">1 500 ₸</strong>
+        </div>
+        <div class="calc-row">
+          <span data-i18n="calc2_row2">Цена тех же книг в магазине:</span>
+          <span id="shop-price" style="text-decoration: line-through;">3 800 ₸</span>
+        </div>
+        <div class="calc-row total">
+          <span data-i18n="calc2_row3">Сэкономлено денег:</span>
+          <span id="savings-value">2 300 ₸</span>
+        </div>
+        <div class="calc-row" style="margin-top: 10px; border-top: 1px dashed var(--line); padding-top: 10px; color: #2e6930; font-weight: bold; font-size: 14px;">
+          <span data-i18n="calc2_row4"><span class='icon icon-tree' role='img' aria-label='дерево'></span> Спасено деревьев:</span>
+          <span id="saved-trees">10% (0.1)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK FINDER -->
+  <section class="book-finder-section">
+    <div class="finder-container">
+      <span class="eyebrow" data-i18n="finder_eyebrow">Рекомендательный подборщик</span>
+      <h2 style="font-size: 26px;" data-i18n="finder_title"><span class='icon icon-book' role='img' aria-label='книга'></span> Какую книгу выбрать сегодня?</h2>
+      <p style="font-size: 14.5px; color: #665f56; margin-bottom: 30px;" data-i18n="finder_intro">Ответьте на 3 лёгких вопроса, и наша интерактивная система посоветует идеальное произведение!</p>
+      <div class="finder-question active" id="fq-1">
+        <h4 style="font-size: 18px; margin-bottom: 15px;" data-i18n="fq1_q">1. Какой литературный жанр вам ближе?</h4>
+        <div class="finder-options">
+          <button class="finder-opt-btn" onclick="nextFinderQuestion(1, 'sci-fi')" data-i18n="fq1_a1"><span class='icon icon-science' role='img' aria-label='наука'></span> Научная фантастика и тайны науки</button>
+          <button class="finder-opt-btn" onclick="nextFinderQuestion(1, 'classic')" data-i18n="fq1_a2"><span class='icon icon-hat' role='img' aria-label='классика'></span> Нестареющая классика и любовные истории</button>
+          <button class="finder-opt-btn" onclick="nextFinderQuestion(1, 'humor')" data-i18n="fq1_a3"><span class='icon icon-drama' role='img' aria-label='драма'></span> Остроумная сатира и комедия</button>
+          <button class="finder-opt-btn" onclick="nextFinderQuestion(1, 'fantasy')" data-i18n="fq1_a4"><span class='icon icon-castle' role='img' aria-label='замок'></span> Фэнтези, магия и приключения</button>
+        </div>
+      </div>
+      <div class="finder-question" id="fq-2">
+        <h4 style="font-size: 18px; margin-bottom: 15px;" data-i18n="fq2_q">2. Какую эмоциональную атмосферу вы ищете?</h4>
+        <div class="finder-options">
+          <button class="finder-opt-btn" onclick="nextFinderQuestion(2, 'drama')" data-i18n="fq2_a1"><span class='icon icon-sad' role='img' aria-label='драма'></span> Трогательную драму, заставляющую сопереживать</button>
+          <button class="finder-opt-btn" onclick="nextFinderQuestion(2, 'intellect')" data-i18n="fq2_a2"><span class='icon icon-brain' role='img' aria-label='интеллект'></span> Интеллектуальный вызов, побуждающий размышлять</button>
+          <button class="finder-opt-btn" onclick="nextFinderQuestion(2, 'light')" data-i18n="fq2_a3"><span class='icon icon-sun' role='img' aria-label='солнце'></span> Лёгкое, динамичное чтение с юмором</button>
+          <button class="finder-opt-btn" onclick="nextFinderQuestion(2, 'magic')" data-i18n="fq2_a4"><span class='icon icon-wizard' role='img' aria-label='волшебник'></span> Загадочное и волшебное приключение</button>
+        </div>
+      </div>
+      <div class="finder-question" id="fq-3">
+        <h4 style="font-size: 18px; margin-bottom: 15px;" data-i18n="fq3_q">3. Какой характер главного героя вас привлекает?</h4>
+        <div class="finder-options">
+          <button class="finder-opt-btn" onclick="calculateFinderResult('rebel')" data-i18n="fq3_a1"><span class='icon icon-fire' role='img' aria-label='экономия'></span> Бунтарь, бросающий вызов устоям общества</button>
+          <button class="finder-opt-btn" onclick="calculateFinderResult('thinker')" data-i18n="fq3_a2"><span class='icon icon-coffee' role='img' aria-label='кофе'></span> Глубокий философ, задумчивый романтик</button>
+          <button class="finder-opt-btn" onclick="calculateFinderResult('adventurer')" data-i18n="fq3_a3"><span class='icon icon-joker' role='img' aria-label='авантюрист'></span> Весёлый авантюрист, ловкий хитрец</button>
+          <button class="finder-opt-btn" onclick="calculateFinderResult('wizard')" data-i18n="fq3_a4"><span class='icon icon-lightning' role='img' aria-label='молния'></span> Юный отважный волшебник со шрамом-молнией</button>
+        </div>
+      </div>
+      <div class="finder-result" id="finder-res">
+        <h4 style="font-size: 22px; color: var(--rust);" id="finder-res-title"></h4>
+        <p style="font-size: 15px; color: #554e45; line-height: 1.8;" id="finder-res-text"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATALOG -->
+  <section class="catalog" id="catalog">
+    <div class="section-heading">
+      <h2 data-i18n="catalog_title">Каталог книг Аяны</h2>
+      <span data-i18n="catalog_subtitle">Все книги до 1 500 ₸ • Отличное состояние</span>
+      <div class="genre-tabs">
+        <button class="genre-tab active" onclick="setGenreFilter('all', this)" data-i18n="genre_all"><span class='icon icon-book' role='img' aria-label='книга'></span> Все книги</button>
+        <button class="genre-tab" onclick="setGenreFilter('fantasy', this)" data-i18n="genre_fantasy"><span class='icon icon-castle' role='img' aria-label='замок'></span> Фэнтези и приключения</button>
+        <button class="genre-tab" onclick="setGenreFilter('sci-fi', this)" data-i18n="genre_scifi"><span class='icon icon-science' role='img' aria-label='наука'></span> Фантастика и антиутопия</button>
+        <button class="genre-tab" onclick="setGenreFilter('drama', this)" data-i18n="genre_drama"><span class='icon icon-drama' role='img' aria-label='драма'></span> Драма и поэзия</button>
+        <button class="genre-tab" onclick="setGenreFilter('satire', this)" data-i18n="genre_satire"><span class='icon icon-joker' role='img' aria-label='авантюрист'></span> Сатира и комедия</button>
+        <button class="genre-tab" onclick="setGenreFilter('realism', this)" data-i18n="genre_realism"><span class='icon icon-tree' role='img' aria-label='дерево'></span> Реализм и проза</button>
+        <button class="genre-tab" onclick="setGenreFilter('nonfiction', this)" data-i18n="genre_nonfiction"><span class='icon icon-bulb' role='img' aria-label='идея'></span> Нон-фикшн</button>
+      </div>
+      <div class="search-wrapper">
+        <input type="text" id="catalog-search" class="search-input" placeholder="Поиск по автору, названию или фразе..." oninput="filterBooks()">
+        <button class="search-clear-btn" onclick="clearSearchFilter()" data-i18n="search_clear">Сбросить</button>
+      </div>
+    </div>
+    <div class="grid" id="books-grid"></div>
+    <div style="display:none; text-align:center; padding:40px; color:#837c72;" id="search-no-results" data-i18n="no_results">Книги не найдены <span class='icon icon-think' role='img' aria-label='раздумье'></span> Попробуйте другой поиск!</div>
+  </section>
+
+  <!-- TESTIMONIALS + REVIEW FORM -->
+  <section class="testimonials-section" id="testimonials">
+    <div style="text-align: center;">
+      <span class="eyebrow" data-i18n="reviews_eyebrow">Что говорят покупатели</span>
+      <h2 data-i18n="reviews_title">Отзывы</h2>
+    </div>
+    <div id="testimonials-container">
+      <div class="no-reviews-msg" id="no-reviews" data-i18n="no_reviews">Пока нет отзывов. Будьте первым, кто оставит отзыв! <span class='icon icon-star' role='img' aria-label='звезда'></span></div>
+    </div>
+    <div class="review-form-card">
+      <h3 style="margin: 0 0 15px 0; font: normal 20px 'Times New Roman', serif; color: var(--ink);" data-i18n="review_form_title">Оставить отзыв</h3>
+      <div style="margin-bottom: 15px;">
+        <label style="font-weight: bold; font-size: 14px;" data-i18n="review_rating_label">Ваша оценка:</label>
+        <div class="star-rating" id="star-rating">
+          <span class="star" data-value="1" onclick="setRating(1)">★</span>
+          <span class="star" data-value="2" onclick="setRating(2)">★</span>
+          <span class="star" data-value="3" onclick="setRating(3)">★</span>
+          <span class="star" data-value="4" onclick="setRating(4)">★</span>
+          <span class="star" data-value="5" onclick="setRating(5)">★</span>
+        </div>
+      </div>
+      <input type="text" class="review-name" id="review-name" placeholder="Ваше имя" data-i18n-ph="review_name_ph">
+      <textarea class="review-input" id="review-text" rows="3" placeholder="Поделитесь своими впечатлениями о книге..." data-i18n-ph="review_text_ph"></textarea>
+      <button class="primary" style="margin-top: 10px;" onclick="submitReview()" data-i18n="review_submit">Отправить отзыв <span class='icon icon-star' role='img' aria-label='звезда'></span></button>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="checklist-section" id="checklist">
+    <div class="checklist-container">
+      <span class="eyebrow" style="color: var(--green-dark);" data-i18n="checklist_eyebrow">Твой прогресс в чтении</span>
+      <h2 style="font: normal 26px 'Times New Roman', serif; color: var(--ink); margin: 10px 0 5px 0;"><span class='icon icon-checkgreen' role='img' aria-label='готово'></span> <span data-i18n="checklist_title">Чеклист читателя</span> (<span id="checklist-count">32</span> <span data-i18n="checklist_books">книг</span>)</h2>
+      <p style="font-size: 14px; color: #665f56; margin-bottom: 20px;" data-i18n="checklist_intro">Отмечайте прочитанные вами произведения. Прогресс сохранится автоматически!</p>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="checklist-progress"></div>
+      </div>
+      <div style="font-weight: bold; font-size: 14px; text-align: right; color: var(--green-dark);" id="progress-percent"></div>
+      <div class="checklist-grid" id="checklist-grid"></div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="quiz-section" id="quiz">
+    <div class="quiz-container">
+      <div style="text-align: center; margin-bottom: 25px;">
+        <span class="eyebrow" data-i18n="quiz_eyebrow">Закрепляем прочитанное в игровой форме</span>
+        <h2 style="font-size: 28px; color: var(--ink); margin-top: 10px;" data-i18n="quiz_title"><span class='icon icon-brain' role='img' aria-label='интеллект'></span> Викторины по книгам</h2>
+        <p style="font-size: 14.5px; color: #665f56; margin-top: 5px;" data-i18n="quiz_intro">По каждой представленной книге — полноценный тест из 10 вопросов!</p>
+      </div>
+      <div class="quiz-selector">
+        <label style="font-weight: bold; display: block; margin-bottom: 10px;" data-i18n="quiz_select_label">Выберите произведение, чтобы начать игру:</label>
+        <select id="book-quiz-select" class="quiz-select" onchange="selectQuiz()">
+          <option value="none" data-i18n="quiz_select_none">-- Выберите книгу --</option>
+        </select>
+      </div>
+      <div class="quiz-content" id="quiz-game-box" style="display: none;">
+        <div style="display:flex; justify-content:space-between; font-weight:bold; margin-bottom:15px; color:var(--rust); font-size:14px;">
+          <span id="quiz-book-title"></span>
+          <span id="quiz-question-counter"></span>
+        </div>
+        <div class="quiz-question-box">
+          <div class="quiz-question-text" id="quiz-question-text"></div>
+          <div class="quiz-answers" id="quiz-answers-box"></div>
+        </div>
+        <div class="quiz-nav">
+          <span style="font-size: 13.5px; color: #665f56;" id="quiz-feedback"></span>
+          <button class="quiz-btn" id="quiz-next-btn" onclick="nextQuizQuestion()" disabled data-i18n="quiz_next">Дальше <span class='icon icon-arrowright' role='img' aria-label='далее'></span></button>
+        </div>
+      </div>
+      <div class="quiz-result-screen" id="quiz-result-screen">
+        <h3 data-i18n="quiz_result_title"><span class='icon icon-party' role='img' aria-label='поздравление'></span> Тест успешно пройден!</h3>
+        <p data-i18n="quiz_result_score">Ваш итоговый счёт:</p>
+        <div class="score-badge" id="res-score-badge">0 / 10</div>
+        <p id="res-commentary" style="font-weight:bold; color: var(--green-dark); margin-bottom: 25px;"></p>
+        <button class="primary" onclick="resetQuiz()" data-i18n="quiz_reset"><span class='icon icon-refresh' role='img' aria-label='обновить'></span> Начать снова</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SALES PROOF -->
+  <section class="sales-proof-section" id="proof">
+    <div class="proof-container">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="eyebrow" data-i18n="proof_eyebrow">Подтверждение продаж</span>
+        <h2 data-i18n="proof_title">Как мы подтверждаем продажи</h2>
+      </div>
+      <div class="proof-badge">
+        <div class="proof-badge-icon"><span class='icon icon-chat' role='img' aria-label='сообщение'></span></div>
+        <div>
+          <strong data-i18n="proof1_title">WhatsApp-чат с покупателем</strong>
+          <span data-i18n="proof1_text">Каждая продажа оформляется через WhatsApp-переписку. Вы можете запросить скриншот подтверждения заказа у тёти Аяны — Улжан.</span>
+        </div>
+      </div>
+      <div class="proof-badge">
+        <div class="proof-badge-icon"><span class='icon icon-checkgreen' role='img' aria-label='готово'></span></div>
+        <div>
+          <strong data-i18n="proof2_title">Статус «Продано» на сайте</strong>
+          <span data-i18n="proof2_text">После продажи книги отмечаются как «Продано» на странице каталога. Покупатель видит, какие книги уже нашли новых читателей.</span>
+        </div>
+      </div>
+      <div class="proof-badge">
+        <div class="proof-badge-icon"><span class='icon icon-star' role='img' aria-label='звезда'></span></div>
+        <div>
+          <strong data-i18n="proof3_title">Отзывы покупателей</strong>
+          <span data-i18n="proof3_text">Каждый покупатель может оставить отзыв с оценкой от 1 до 5 звёзд. Реальные отзывы подтверждают реальность продаж. Счётчик отзывов и проданных книг обновляется только по факту!</span>
+        </div>
+      </div>
+
+      <div class="sales-log">
+        <h3 data-i18n="sales_log_title"><span class='icon icon-clipboard' role='img' aria-label='список'></span> Журнал подтверждённых продаж</h3>
+        <div id="sales-log-content"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="faq-container">
+      <div style="text-align: center; margin-bottom: 45px;">
+        <span class="eyebrow" data-i18n="faq_eyebrow">Часто задаваемые вопросы</span>
+        <h2 data-i18n="faq_title">Часто задаваемые вопросы (FAQ)</h2>
+      </div>
+      <div class="faq-item">
+        <div class="faq-quest" onclick="toggleFaq(this)" data-i18n="faq1_q">Каково состояние ваших книг?</div>
+        <div class="faq-ans" data-i18n="faq1_a">Большинство книг прочитаны аккуратно, один раз — в отличном состоянии. Некоторые книги из нашей домашней коллекции уже давно хранятся у нас, что отражено в их описании. Состояние каждой книги указано на карточке в каталоге.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-quest" onclick="toggleFaq(this)" data-i18n="faq2_q">Как устроена доставка по Астане и Казахстану?</div>
+        <div class="faq-ans" data-i18n="faq2_a">Для покупателей из Астаны — самовывоз по согласованию или Яндекс-курьер. Для других городов — отправка Казпочтой или СДЭК/DPD в надёжной упаковке.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-quest" onclick="toggleFaq(this)" data-i18n="faq3_q">Каким способом можно оплатить заказ?</div>
+        <div class="faq-ans" data-i18n="faq3_a">Оплата производится быстрым переводом на карту Kaspi Gold тёти Аяны — Сауранбаевой Улжан Сатыбалдиевны. Номер привязан к нашему WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-quest" onclick="toggleFaq(this)" data-i18n="faq4_q">Сколько стоят книги?</div>
+        <div class="faq-ans" data-i18n="faq4_a">Цены разные — от 500 ₸ до 1 500 ₸. Максимальная цена любой книги — 1 500 ₸, но многие стоят дешевле. Точная цена указана на карточке каждой книги в каталоге.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-quest" onclick="toggleFaq(this)" data-i18n="faq5_q">Все ли книги прочитаны Аяной?</div>
+        <div class="faq-ans" data-i18n="faq5_a">Да! Все книги, представленные в каталоге, лично прочитаны Аяной. Она готова обсудить каждую книгу, растолковать сюжет и поделиться впечатлениями — это создаёт замечательный опыт обмена мнениями между читателями!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div data-i18n="footer_copy">© 2026 BookBloom. Все права защищены.</div>
+    <div><span class='icon icon-pin' role='img' aria-label='город'></span> <span data-i18n="footer_city">г. Астана</span> • <span class='icon icon-phone' role='img' aria-label='телефон'></span> +7 707 040 3611 • <span class='icon icon-email' role='img' aria-label='почта'></span> aldibek.a@nisa.edu.kz</div>
+    <div style="margin-top: 8px;"><span data-i18n="footer_parent">Родитель-координатор: Сауранбаева Улжан Сатыбалдиевна</span></div>
+    <div style="margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; flex-direction: column; align-items: center; gap: 12px;">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https%3A%2F%2Fwa.me%2F77013647555%3Ftext%3D%25D0%2597%25D0%25B4%25D1%2580%25D0%25B0%25D0%25B2%25D1%2581%25D1%2582%25D0%25B2%25D1%2583%25D0%25B9%25D1%2582%25D0%25B5%252C%2520%25D0%25A3%25D0%25BB%25D0%25B6%25D0%25B0%25D0%25BD%21%2520%25D0%25AF%2520%25D1%2581%2520%25D1%2581%25D0%25B0%25D0%25B9%25D1%2582%25D0%25B0%2520%25D0%2590%25D1%258F%25D0%25BD%25D1%258B.%2520%25D0%25A5%25D0%25BE%25D1%2587%25D1%2583%2520%25D0%25BA%25D1%2583%25D0%25BF%25D0%25B8%25D1%2582%25D1%258C%2520%25D0%25BA%25D0%25BD%25D0%25B8%25D0%25B3%25D1%2583%253A%2520" alt="QR-код WhatsApp доверенного лица" width="140" height="140" style="background:#fff; padding:8px; border-radius:6px;">
+      <a href="https://wa.me/77013647555?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A3%D0%BB%D0%B6%D0%B0%D0%BD!%20%D0%AF%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0%20%D0%90%D1%8F%D0%BD%D1%8B.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C%20%D0%BA%D0%BD%D0%B8%D0%B3%D1%83%3A%20" target="_blank" class="primary" style="display:inline-flex; align-items:center; gap:8px; background: var(--rust); color:#fff;">
+        <span class='icon icon-chat' role='img' aria-label='сообщение'></span>
+        <span data-i18n="footer_trusted_qr">Написать доверенному лицу (Улжан)</span>
+      </a>
+    </div>
+  </footer>
+
+  <button class="scroll-top-btn" id="scroll-top-btn" onclick="scrollToTop()" aria-label="Наверх"><span class='icon icon-arrowup' role='img' aria-label='наверх'></span></button>
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- CART MODAL -->
+  <div class="cart-overlay" id="cart-overlay" onclick="handleOverlayClick(event)">
+    <div class="cart-modal">
+      <div class="cart-modal-header">
+        <h3 data-i18n="cart_title"><span class='icon icon-cart' role='img' aria-label='корзина'></span> Ваша корзина</h3>
+        <button class="cart-close-btn" onclick="closeCart()"><span class='icon icon-close' role='img' aria-label='закрыть'></span></button>
+      </div>
+      <div class="cart-modal-body" id="cart-items-container"></div>
+      <div class="cart-modal-footer">
+        <div class="cart-total-row">
+          <span data-i18n="cart_total">Итого:</span>
+          <strong id="cart-total">0 ₸</strong>
+        </div>
+        <button class="primary cart-checkout-btn" onclick="checkoutCart()" data-i18n="cart_checkout"><span class='icon icon-chat' role='img' aria-label='сообщение'></span> Оформить заказ в WhatsApp</button>
+        <button class="cart-clear-btn" onclick="clearCart()" data-i18n="cart_clear">Очистить корзину</button>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

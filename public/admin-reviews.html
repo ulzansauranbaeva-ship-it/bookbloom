@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Управление отзывами</title>
+<style>
+  body{font-family:system-ui,sans-serif;max-width:720px;margin:24px auto;padding:0 16px;color:#222}
+  input,button{font:inherit;padding:8px 12px;border-radius:8px;border:1px solid #bbb}
+  button{cursor:pointer;background:#2f6b3a;color:#fff;border-color:#2f6b3a}
+  button.del{background:#b3261e;border-color:#b3261e;padding:4px 10px}
+  .card{border:1px solid #ddd;border-radius:10px;padding:12px;margin:10px 0}
+  .meta{color:#666;font-size:.85em}
+</style>
+</head>
+<body>
+<h1>Управление отзывами</h1>
+<p>Введите секретный ключ ADMIN_KEY (его вы задали в настройках Netlify), чтобы удалять отзывы.</p>
+<p><input id="key" type="password" placeholder="ADMIN_KEY" size="28"> <button id="load">Показать отзывы</button></p>
+<div id="list"></div>
+<script>
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function load() {
+  const list = document.getElementById('list');
+  list.textContent = 'Загрузка...';
+  try {
+    const res = await fetch('/api/reviews');
+    const rows = (await res.json()).reverse();
+    list.innerHTML = rows.length ? rows.map(r => `
+      <div class="card">
+        <div>${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)} — <b>${esc(r.name)}</b></div>
+        <div>${esc(r.text)}</div>
+        <div class="meta">${esc(r.created_at || '')}</div>
+        <p><button class="del" data-id="${esc(r.id)}">Удалить</button></p>
+      </div>`).join('') : 'Отзывов пока нет.';
+  } catch (e) { list.textContent = 'Не удалось загрузить отзывы.'; }
+}
+document.getElementById('load').onclick = load;
+document.getElementById('list').addEventListener('click', async e => {
+  const id = e.target.dataset && e.target.dataset.id;
+  if (!id || !confirm('Удалить этот отзыв насовсем?')) return;
+  const res = await fetch('/api/reviews?id=' + encodeURIComponent(id), {
+    method: 'DELETE',
+    headers: { 'x-admin-key': document.getElementById('key').value }
+  });
+  if (res.ok) load(); else alert('Не получилось удалить. Проверьте ключ ADMIN_KEY.');
+});
+</script>
+</body>
+</html>
