@@ -1196,3 +1196,75 @@
       color: #837c72; cursor: pointer;
     }
     .cart-clear-btn:hover { border-color: var(--rust); color: var(--rust); }
+    /* ============ ПАНЕЛЬ ПРОДАВЦА И ПОПАП ПРОДАЖИ ============ */
+    .buy button.sold-out {
+      cursor: pointer;
+      background: var(--green-dark);
+    }
+    .buy button.sold-out:hover { background: #234f25; }
+
+    .sale-popup-row {
+      display: flex; justify-content: space-between;
+      padding: 8px 0; border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .sale-popup-row:last-of-type { border-bottom: none; }
+    .sale-popup-status {
+      margin-top: 14px; padding: 10px; text-align: center;
+      background: var(--green-light); color: var(--green-dark);
+      border-radius: 6px; font-weight: bold; font-size: 13.5px;
+    }
+
+    .seller-input {
+      width: 100%; padding: 10px 12px; margin-top: 6px;
+      border: 1px solid var(--line); border-radius: 6px;
+      background: #fff; color: var(--ink); font: 14px "Times New Roman", serif;
+      box-sizing: border-box;
+    }
+    .seller-field { margin-bottom: 16px; }
+    .seller-field label { font-size: 13px; font-weight: bold; color: var(--ink); }
+    .seller-field small { display: block; margin-top: 4px; font-size: 11.5px; }
+
+    .seller-book-list { margin-bottom: 24px; max-height: 320px; overflow-y: auto; }
+    .seller-book-row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line);
+      font-size: 13.5px;
+    }
+    .seller-book-row:last-child { border-bottom: none; }
+    .seller-book-row-info { display: flex; flex-direction: column; gap: 3px; }
+    .seller-status { font-size: 11.5px; }
+    .seller-status.is-sold { color: var(--green-dark); font-weight: bold; }
+    .seller-status.is-available { color: #837c72; }
+
+    .seller-mini-btn {
+      padding: 7px 14px; border-radius: 20px; border: 1px solid var(--line);
+      background: #fff; color: var(--ink); font: bold 12px "Times New Roman", serif;
+      cursor: pointer; white-space: nowrap;
+    }
+    .seller-mini-btn:hover { background: var(--cream); }
+    .seller-mini-btn.primary { background: var(--green-dark); color: #fff; border-color: var(--green-dark); }
+    .seller-mini-btn.primary:hover { background: #234f25; }
+
+    .seller-code-section { border-top: 1px solid var(--line); padding-top: 18px; }
+    .seller-code-section h4 { margin: 0 0 6px; font: normal 17px "Times New Roman", serif; }
+    .seller-code-box {
+      background: var(--ink); color: #e2ede4;
+      padding: 14px; border-radius: 8px; font-size: 11.5px;
+      overflow-x: auto; white-space: pre; max-height: 200px; overflow-y: auto;
+      font-family: 'Courier New', monospace;
+    }
+
+    .seller-screenshot-preview { margin-top: 10px; display: flex; flex-direction: column; gap: 10px; }
+    .seller-attachment-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px; border: 1px solid var(--line); border-radius: 6px;
+    }
+    .seller-attachment-item img {
+      max-width: 70px; max-height: 70px; border-radius: 4px;
+      display: block; flex-shrink: 0;
+    }
+    .seller-file-chip {
+      font-size: 13px; color: var(--ink); flex: 1;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }

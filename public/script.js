@@ -13,10 +13,10 @@ const i18n = {
     hero_book1: "Е. Замятин — «Мы»", hero_book2: "Гарри Поттер и Философский камень", hero_book3: "Д. Киз — Цветы для Элджернона",
     qr_title: "QR-код заказа",
     qr_text: "Наведите камеру телефона для быстрого заказа!",
-    stat_visits: "Заходили на сайт", stat_inquiries: "Оформили заказ через сайт",
+    stat_visits: "Заходили на сайт",
     stat_sold: "Книг куплено (подтверждено)", stat_readers: "Довольных читателей",
     stat_catalog: "Книг в каталоге", stat_trees: "Спасено деревьев",
-    stats_note: "«Заходили на сайт» и «Оформили заказ» считаются автоматически. «Книг куплено» — только подтверждённые продажи, проверенные вручную.",
+    stats_note: "«Заходили на сайт» считается автоматически. «Книг куплено» — только подтверждённые продажи, проверенные вручную.",
     about_title: "Осознанное чтение — забота о будущем",
     about_p1: "Меня зовут <strong>Алдибек Аяна Бауыржанқызы</strong>. Я ученица НИШ в Астане, безумно обожаю литературу, математику, биологию и бережно отношусь к природе Казахстана.",
     about_p2: "Все книги, представленные в каталоге, прочитаны мною лично — большинство из них ровно один раз, в прекрасном состоянии. Некоторые книги из нашей домашней коллекции уже долгое время находятся у нас, что также отражено в описании. Каждая книга имеет свою цену — не более 1 500 тенге, а многие стоят значительно меньше. Я готова обсудить каждую книгу, растолковать сюжет и поделиться мыслями после вашего прочтения — обмен впечатлениями станет отличным опытом!",
@@ -88,6 +88,7 @@ const i18n = {
     reviews_eyebrow: "Что говорят покупатели", reviews_title: "Отзывы",
     no_reviews: "Пока нет отзывов. Будьте первым, кто оставит отзыв! <span class='icon icon-star' role='img' aria-label='звезда'></span>",
     review_form_title: "Оставить отзыв", review_rating_label: "Ваша оценка:",
+    review_translate_note: "Отзыв автоматически переводится на другой язык сайта.",
     review_name_ph: "Ваше имя", review_text_ph: "Поделитесь своими впечатлениями о книге...",
     review_submit: "Отправить отзыв <span class='icon icon-star' role='img' aria-label='звезда'></span>",
     checklist_eyebrow: "Твой прогресс в чтении", checklist_title: "Чеклист читателя", checklist_books: "книг",
@@ -129,7 +130,57 @@ const i18n = {
     details_btn: "Сюжет, цитата и фильм <span class='icon icon-down' role='img' aria-label='вниз'></span>", details_hide: "Скрыть <span class='icon icon-up' role='img' aria-label='вверх'></span>",
     checklist_progress: "Вы прочитали:", condition_read1: "Прочитана 1 раз",
     condition_old: "Из домашней коллекции", sold: "Продано",
-    quiz_feedback_select: "Выберите ответ", quiz_correct: "<span class='icon icon-checkgreen' role='img' aria-label='готово'></span> Правильно!", quiz_wrong: "<span class='icon icon-crossred' role='img' aria-label='неверно'></span> Неверно"
+    quiz_feedback_select: "Выберите ответ", quiz_correct: "<span class='icon icon-checkgreen' role='img' aria-label='готово'></span> Правильно!", quiz_wrong: "<span class='icon icon-crossred' role='img' aria-label='неверно'></span> Неверно",
+
+    // ПАНЕЛЬ ПРОДАВЦА
+    seller_panel_link: "🔒 Панель продавца",
+    seller_login_title: "Вход в панель продавца",
+    seller_login_text: "Здесь создатель сайта вручную подтверждает реальные продажи книг. Введите пароль, чтобы продолжить.",
+    seller_password_ph: "Пароль",
+    seller_login_btn: "Войти",
+    seller_wrong_password: "Неверный пароль. Попробуйте ещё раз.",
+    seller_panel_title: "🔒 Панель продавца",
+    seller_panel_intro: "Здесь фиксируются только фактически подтверждённые продажи — после того как покупатель реально оплатил книгу. Обращение в WhatsApp само по себе НЕ делает книгу «проданной».",
+    seller_logout_btn: "Выйти из панели",
+    seller_status_available: "В наличии",
+    seller_status_sold: "Продано",
+    seller_confirm_btn: "Подтвердить продажу",
+    seller_edit_btn: "Изменить запись",
+    seller_cancel_sale_btn: "Отменить продажу",
+    seller_form_title: "Подтверждение продажи",
+    seller_form_book: "Книга",
+    seller_form_price: "Цена, ₸",
+    seller_form_date: "Дата продажи",
+    seller_form_buyer: "Инициалы покупателя",
+    seller_form_buyer_hint: "Например: «А. К.» — не указывайте полное имя.",
+    seller_form_order: "Номер заказа",
+    seller_form_payment: "Способ оплаты",
+    payment_kaspi_pay: "Kaspi Pay",
+    payment_kaspi_transfer: "Kaspi перевод",
+    payment_cash: "Наличные",
+    payment_other: "Другое",
+    seller_form_screenshot: "Подтверждения оплаты (необязательно)",
+    seller_form_screenshot_hint: "Можно прикрепить сразу несколько файлов — PNG, JPG или PDF (до 5 МБ каждый). Хранятся на сервере и видны только вам после ввода пароля; на сайте никогда не публикуются — для показа на защите проекта.",
+    seller_form_screenshot_view: "Просмотреть",
+    seller_form_screenshot_remove: "Удалить скриншот",
+    seller_form_submit: "Подтвердить продажу",
+    seller_form_cancel: "Отмена",
+    seller_code_title: "Код для публикации на сайте",
+    seller_code_hint: "Скопируйте этот код целиком и замените им массив PUBLISHED_SALES_RECORDS в файле script.js. Затем сохраните файл и заново загрузите сайт на хостинг — только тогда изменения увидят ВСЕ посетители сайта.",
+    seller_code_copy_btn: "Скопировать код",
+    seller_code_copied: "Скопировано ✓",
+    seller_reset_btn: "Сбросить тестовые/неопубликованные продажи",
+    seller_reset_reviews_btn: "Сбросить тестовые отзывы",
+    seller_empty_records: "Пока подтверждённых продаж нет.",
+    seller_reviews_title: "Отзывы посетителей",
+    seller_reviews_empty: "Отзывов пока нет.",
+    seller_review_delete: "Удалить",
+    sale_popup_title: "Информация о продаже",
+    sale_popup_date: "Дата продажи:",
+    sale_popup_price: "Сумма:",
+    sale_popup_order: "№ заказа:",
+    sale_popup_status: "🟢 Продажа подтверждена",
+    sale_popup_close: "Закрыть",
   },
   en: {
     logo: "BookBloom",
@@ -144,10 +195,10 @@ const i18n = {
     hero_book1: "Y. Zamyatin — «We»", hero_book2: "Harry Potter and the Philosopher's Stone", hero_book3: "D. Keyes — Flowers for Algernon",
     qr_title: "Order QR Code",
     qr_text: "Scan with your phone camera for quick ordering!",
-    stat_visits: "Site Visits", stat_inquiries: "Ordered via Site",
+    stat_visits: "Site Visits",
     stat_sold: "Books Sold (Confirmed)", stat_readers: "Happy Readers",
     stat_catalog: "Books in Catalog", stat_trees: "Trees Saved",
-    stats_note: "\"Site Visits\" and \"Ordered via Site\" are counted automatically. \"Books Sold\" reflects only manually confirmed sales.",
+    stats_note: "\"Site Visits\" is counted automatically. \"Books Sold\" reflects only manually confirmed sales.",
     about_title: "Mindful Reading — Caring for the Future",
     about_p1: "My name is <strong>Aldibek Ayana Bauyrzhankyzy</strong>. I am a student at NIS in Astana, I passionately love literature, mathematics, biology, and I care deeply about the nature of Kazakhstan.",
     about_p2: "All books in the catalog were read by me personally — most of them exactly once, in excellent condition. Some books from our home collection have been with us for a long time, which is reflected in their description. Each book has its own price — no more than 1,500 tenge, and many cost significantly less. I am ready to discuss each book, explain the plot, and share my thoughts after your reading — exchanging impressions will be a great experience!",
@@ -219,6 +270,7 @@ const i18n = {
     reviews_eyebrow: "What Buyers Say", reviews_title: "Reviews",
     no_reviews: "No reviews yet. Be the first to leave a review! <span class='icon icon-star' role='img' aria-label='звезда'></span>",
     review_form_title: "Leave a Review", review_rating_label: "Your Rating:",
+    review_translate_note: "Your review is automatically translated into the site's other language.",
     review_name_ph: "Your name", review_text_ph: "Share your impressions about the book...",
     review_submit: "Submit Review <span class='icon icon-star' role='img' aria-label='звезда'></span>",
     checklist_eyebrow: "Your Reading Progress", checklist_title: "Reader's Checklist", checklist_books: "books",
@@ -260,13 +312,63 @@ const i18n = {
     details_btn: "Plot, Quote & Movie <span class='icon icon-down' role='img' aria-label='вниз'></span>", details_hide: "Hide <span class='icon icon-up' role='img' aria-label='вверх'></span>",
     checklist_progress: "You've read:", condition_read1: "Read once",
     condition_old: "From home collection", sold: "Sold",
-    quiz_feedback_select: "Select an answer", quiz_correct: "<span class='icon icon-checkgreen' role='img' aria-label='готово'></span> Correct!", quiz_wrong: "<span class='icon icon-crossred' role='img' aria-label='неверно'></span> Wrong"
+    quiz_feedback_select: "Select an answer", quiz_correct: "<span class='icon icon-checkgreen' role='img' aria-label='готово'></span> Correct!", quiz_wrong: "<span class='icon icon-crossred' role='img' aria-label='неверно'></span> Wrong",
+
+    // SELLER PANEL
+    seller_panel_link: "🔒 Seller Panel",
+    seller_login_title: "Seller Panel Login",
+    seller_login_text: "This is where the site owner manually confirms real book sales. Enter the password to continue.",
+    seller_password_ph: "Password",
+    seller_login_btn: "Log in",
+    seller_wrong_password: "Incorrect password. Please try again.",
+    seller_panel_title: "🔒 Seller Panel",
+    seller_panel_intro: "Only actually confirmed sales are recorded here — after the buyer has really paid for the book. A WhatsApp inquiry alone does NOT make a book \"sold\".",
+    seller_logout_btn: "Log out",
+    seller_status_available: "Available",
+    seller_status_sold: "Sold",
+    seller_confirm_btn: "Confirm sale",
+    seller_edit_btn: "Edit record",
+    seller_cancel_sale_btn: "Cancel sale",
+    seller_form_title: "Confirm Sale",
+    seller_form_book: "Book",
+    seller_form_price: "Price, ₸",
+    seller_form_date: "Sale date",
+    seller_form_buyer: "Buyer initials",
+    seller_form_buyer_hint: "E.g. \"A. K.\" — do not enter the full name.",
+    seller_form_order: "Order number",
+    seller_form_payment: "Payment method",
+    payment_kaspi_pay: "Kaspi Pay",
+    payment_kaspi_transfer: "Kaspi Transfer",
+    payment_cash: "Cash",
+    payment_other: "Other",
+    seller_form_screenshot: "Payment confirmations (optional)",
+    seller_form_screenshot_hint: "You can attach several files at once — PNG, JPG or PDF (up to 5 MB each). Stored on the server and visible only to you after you enter the password; never published on the site — for showing at your project defense.",
+    seller_form_screenshot_view: "View",
+    seller_form_screenshot_remove: "Remove screenshot",
+    seller_form_submit: "Confirm sale",
+    seller_form_cancel: "Cancel",
+    seller_code_title: "Code to publish on the site",
+    seller_code_hint: "Copy this code and replace the PUBLISHED_SALES_RECORDS array in script.js with it. Then save the file and re-upload the site to your hosting — only then will ALL visitors see the change.",
+    seller_code_copy_btn: "Copy code",
+    seller_code_copied: "Copied ✓",
+    seller_reset_btn: "Reset test/unpublished sales",
+    seller_reset_reviews_btn: "Reset test reviews",
+    seller_empty_records: "No confirmed sales yet.",
+    seller_reviews_title: "Visitor reviews",
+    seller_reviews_empty: "No reviews yet.",
+    seller_review_delete: "Delete",
+    sale_popup_title: "Sale Information",
+    sale_popup_date: "Sale date:",
+    sale_popup_price: "Amount:",
+    sale_popup_order: "Order #:",
+    sale_popup_status: "🟢 Sale confirmed",
+    sale_popup_close: "Close",
   }
 };
 
-// ============ АВТОМАТИЧЕСКАЯ СТАТИСТИКА САЙТА (ПОСЕЩЕНИЯ И ОБРАЩЕНИЯ) ============
-// Считается на сервере сайта (Netlify), поэтому число одинаково у всех
-// посетителей на любых устройствах. Если сервер недоступен — показывается "—".
+// ============ СЧЁТЧИК ПОСЕЩЕНИЙ ============
+// Считается на сервере сайта (Netlify), поэтому число одинаково у всех посетителей
+// на любых устройствах. Один визит считается один раз за сессию браузера.
 async function statsApi(method, body) {
   try {
     const controller = new AbortController();
@@ -285,57 +387,44 @@ async function statsApi(method, body) {
   }
 }
 
-function showSiteStats(data) {
-  const v = document.getElementById('stat-visits');
-  const q = document.getElementById('stat-inquiries');
-  if (v) v.textContent = data ? data.visits : '—';
-  if (q) q.textContent = data ? data.inquiries : '—';
-}
-
-// Один визит считается один раз за сессию (обновление страницы не накручивает счётчик).
-async function loadSiteStats() {
+async function trackVisit() {
+  const visitsEl = document.getElementById('stat-visits');
   let already = false;
   try { already = !!sessionStorage.getItem('bookbloom_visit_counted'); } catch (e) {}
+  let data;
   if (!already) {
     try { sessionStorage.setItem('bookbloom_visit_counted', '1'); } catch (e) {}
-    showSiteStats(await statsApi('POST', { type: 'visit' }));
+    data = await statsApi('POST', { type: 'visit' });
   } else {
-    showSiteStats(await statsApi('GET'));
+    data = await statsApi('GET');
   }
+  if (visitsEl) visitsEl.textContent = data ? data.visits : '—';
 }
-function trackVisit() { /* учёт визита выполняется в loadSiteStats() */ }
 
-// Нажатие "Оформить заказ в WhatsApp" — признак обращения за покупкой.
-// Саму оплату по-прежнему подтверждает Улжан вручную (журнал продаж ниже).
-async function trackInquiry() {
-  const data = await statsApi('POST', { type: 'inquiry' });
-  if (data) showSiteStats(data);
+async function loadSiteStats() {
+  // Счётчик "Оформили заказ через сайт" убран с сайта по просьбе — здесь нечего загружать.
 }
 
 // ============ SALES LOG ============
-// Это и есть ответ на вопрос "куда вносить отчёт о продажах" —
-// публичное, видимое всем посетителям подтверждение того, что книга
-// куплена именно через этот сайт (отдельно от статуса "Продано" в
-// каталоге). Как подтвердить продажу:
-// 1) Отметьте книгу как sold: true в массиве books выше.
-// 2) Добавьте сюда новую запись по образцу (не забудьте запятую):
-//    { date: "03.09.2026", book_ru: "«Мы» — Е. Замятин", book_en: "«We» — Y. Zamyatin", note_ru: "Подтверждено по WhatsApp", note_en: "Confirmed via WhatsApp" },
-// Самые новые записи показывайте сверху списка.
-const salesLog = [
-  // { date: "03.09.2026", book_ru: "«Мы» — Е. Замятин", book_en: "«We» — Y. Zamyatin", note_ru: "Подтверждено по WhatsApp", note_en: "Confirmed via WhatsApp" },
-];
-
+// Список продаж на этой публичной странице теперь строится АВТОМАТИЧЕСКИ
+// из подтверждённых продаж, сохранённых на сервере (см. раздел
+// "АДМИН-ПАНЕЛЬ / ПРОДАЖИ" ниже). Вручную здесь ничего редактировать
+// не нужно — используйте закрытую "Панель продавца" внизу сайта.
 function renderSalesLog() {
   const el = document.getElementById('sales-log-content');
   if (!el) return;
-  if (salesLog.length === 0) {
+  const confirmedSorted = salesRecords
+    .filter(r => r.confirmed)
+    .slice()
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  if (confirmedSorted.length === 0) {
     el.innerHTML = `<div class="sales-log-empty">${i18n[currentLang].sales_log_empty}</div>`;
     return;
   }
-  el.innerHTML = `<ul class="sales-log-list">` + salesLog.map(s => {
-    const book = currentLang === 'ru' ? s.book_ru : s.book_en;
-    const note = currentLang === 'ru' ? s.note_ru : s.note_en;
-    return `<li><span><span class='icon icon-checkgreen' role='img' aria-label='готово'></span> <strong>${book}</strong> — ${note}</span><span class="sl-date">${s.date}</span></li>`;
+  el.innerHTML = `<ul class="sales-log-list">` + confirmedSorted.map(r => {
+    const book = books.find(b => b.id === r.bookId);
+    const title = book ? (currentLang === 'ru' ? book.title_ru : book.title_en) : r.bookTitle || '';
+    return `<li><span><span class='icon icon-checkgreen' role='img' aria-label='готово'></span> <strong>${title}</strong> — № ${r.orderNumber}</span><span class="sl-date">${formatDateDisplay(r.date)}</span></li>`;
   }).join('') + `</ul>`;
 }
 
@@ -667,7 +756,89 @@ const books = [
     movie_en: "Film adaptation «Zero Hour!» (1957), dir. Hall Bartlett; the plot was famously parodied in the comedy «Airplane!» (1980)." }
 ];
 
-// ============ QUIZ DATABASE ============
+// ============ ПРОДАЖИ И ПАНЕЛЬ ПРОДАВЦА ============
+// Статус "Продано" формируется ТОЛЬКО здесь. Простое сообщение в WhatsApp его
+// НИКОГДА не меняет — только закрытая "Панель продавца" (кнопка внизу сайта)
+// после того, как продавец вручную подтвердил, что деньги реально получены.
+//
+// Подтверждённые продажи хранятся на сервере сайта (Netlify), поэтому статус
+// "Продано" сразу видят ВСЕ посетители. Копировать код и заново загружать сайт
+// больше не нужно. Пароль панели задаётся в настройках Netlify (переменная ADMIN_KEY).
+let salesRecords = [];
+const SELLER_KEY_NAME = 'bookbloom_seller_key';
+
+function getSellerKey() {
+  try { return sessionStorage.getItem(SELLER_KEY_NAME) || ''; } catch (e) { return ''; }
+}
+function clearSellerKey() {
+  try { sessionStorage.removeItem(SELLER_KEY_NAME); } catch (e) {}
+}
+function sellerHeaders(extra) {
+  return Object.assign({ 'x-admin-key': getSellerKey() }, extra || {});
+}
+
+function mapSale(s) {
+  const id = Number(s.bookId);
+  const book = books.find(b => b.id === id);
+  return {
+    bookId: id,
+    bookTitle: book ? book.title_ru : '',
+    price: Number(s.price) || 0,
+    date: s.date || '',
+    buyerInitials: s.buyerInitials || '',
+    orderNumber: s.orderNumber || '',
+    paymentMethod: s.paymentMethod || 'other',
+    confirmed: true
+  };
+}
+
+function refreshSalesViews() {
+  renderBooks();
+  renderSalesLog();
+  updateStats();
+  const panel = document.getElementById('seller-panel-overlay');
+  if (panel && panel.classList.contains('open')) renderSellerBookList();
+}
+
+async function fetchSales() {
+  try {
+    let res = await fetch('/api/sales', getSellerKey() ? { headers: sellerHeaders() } : undefined);
+    if (res.status === 403 || res.status === 429) { clearSellerKey(); res = await fetch('/api/sales'); }
+    if (!res.ok) return false;
+    const rows = await res.json();
+    if (!Array.isArray(rows)) return false;
+    salesRecords = rows.map(mapSale);
+    refreshSalesViews();
+    return true;
+  } catch (e) { return false; }
+}
+
+function isBookSold(bookId) {
+  return salesRecords.some(r => r.bookId === bookId && r.confirmed);
+}
+
+function getSaleRecord(bookId) {
+  return salesRecords.find(r => r.bookId === bookId && r.confirmed);
+}
+
+// "20.09.2026" из значения <input type="date"> (2026-09-20)
+function formatDateDisplay(isoDate) {
+  if (!isoDate) return '';
+  const parts = isoDate.split('-');
+  if (parts.length !== 3) return isoDate;
+  return `${parts[2]}.${parts[1]}.${parts[0]}`;
+}
+
+function nextOrderNumber() {
+  let max = 0;
+  salesRecords.forEach(r => {
+    const m = /^BB-(\d+)$/.exec(r.orderNumber || '');
+    if (m) max = Math.max(max, parseInt(m[1], 10));
+  });
+  return 'BB-' + String(Math.max(max, salesRecords.length) + 1).padStart(3, '0');
+}
+
+
 const quizDatabase = {
   harry_potter: {
     title_ru: "«Гарри Поттер» (Общая викторина)", title_en: "«Harry Potter» (General Quiz)",
@@ -1138,11 +1309,12 @@ function renderBooks() {
     const movie = currentLang === 'ru' ? book.movie_ru : book.movie_en;
     const condText = book.condition === 'old' ? i18n[currentLang].condition_old : i18n[currentLang].condition_read1;
     const soldText = i18n[currentLang].sold;
-    const buyControl = book.sold
-      ? `<button class="sold-out" disabled>${soldText}</button>`
+    const sold = isBookSold(book.id);
+    const buyControl = sold
+      ? `<button class="sold-out" onclick="openSalePopup(${book.id})">🟢 ${soldText}</button>`
       : `<button onclick="addToCart('${title} — ${author}', ${book.price}, this)">+</button>`;
-    return `<div class="card${book.sold ? ' is-sold' : ''}" data-genre="${book.genre}" data-book-id="${book.id}">
-      ${book.sold ? `<div class="sold-ribbon">${soldText}</div>` : ''}
+    return `<div class="card${sold ? ' is-sold' : ''}" data-genre="${book.genre}" data-book-id="${book.id}">
+      ${sold ? `<div class="sold-ribbon" onclick="openSalePopup(${book.id})" style="cursor:pointer;">${soldText}</div>` : ''}
       <div>
         <div class="cover ${book.cover_class}">
           <div class="cover-fallback">
@@ -1174,6 +1346,25 @@ function renderBooks() {
     </div>`;
   }).join('');
   filterBooks();
+}
+
+// Публичный попап с информацией о продаже — только дата, сумма и номер
+// заказа. Инициалы покупателя, способ оплаты и скриншот НЕ показываются
+// публично — они видны только в закрытой панели продавца.
+function openSalePopup(bookId) {
+  const record = getSaleRecord(bookId);
+  const book = books.find(b => b.id === bookId);
+  if (!record || !book) return;
+  const title = currentLang === 'ru' ? book.title_ru : book.title_en;
+  document.getElementById('sale-popup-book').textContent = title;
+  document.getElementById('sale-popup-date-val').textContent = formatDateDisplay(record.date);
+  document.getElementById('sale-popup-price-val').textContent = record.price.toLocaleString() + ' ₸';
+  document.getElementById('sale-popup-order-val').textContent = record.orderNumber;
+  document.getElementById('sale-popup-overlay').classList.add('open');
+}
+
+function closeSalePopup() {
+  document.getElementById('sale-popup-overlay').classList.remove('open');
 }
 
 function toggleDetails(btn) {
@@ -1277,7 +1468,6 @@ function handleOverlayClick(e) { if (e.target.id === 'cart-overlay') closeCart()
 
 function checkoutCart() {
   if (cart.length === 0) { alert(currentLang === 'ru' ? 'Корзина пуста' : 'Cart is empty'); return; }
-  trackInquiry();
   const phone = '77013647555';
   const lines = cart.map(i => `• ${i.title} — ${i.qty} ${currentLang === 'ru' ? 'шт.' : 'pcs.'} (${(i.price*i.qty).toLocaleString()} ₸)`);
   const total = getCartTotal();
@@ -1316,18 +1506,16 @@ function setRating(rating) {
 
 // ---------- ОБЩИЕ ОТЗЫВЫ ДЛЯ ВСЕХ ПОСЕТИТЕЛЕЙ ----------
 // Отзывы хранятся на сервере сайта (Netlify), поэтому их видят все посетители
-// на любых устройствах. Если сервер недоступен (например, файл открыт просто
-// с компьютера), сайт работает в резервном режиме: отзывы видны только в этом браузере.
+// на любых устройствах. Если сервер недоступен (например, файл открыт просто с
+// компьютера), сайт работает в резервном режиме: отзывы видны только в этом браузере.
 let reviewsApiOk = false;
-function reviewsConfigured() { return reviewsApiOk; }
+let sharedReviews = [];
+let reviewsReady = null;
 
 // Защита: текст отзыва от посетителей нельзя вставлять в страницу "как есть".
 function escapeHtml(str) {
   return String(str).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
-
-let sharedReviews = [];
-let reviewsReady = null;
 
 function fetchSharedReviews() {
   reviewsReady = (async () => {
@@ -1339,54 +1527,83 @@ function fetchSharedReviews() {
         reviewsApiOk = true;
         sharedReviews = rows;
         renderReviews();
+        if (typeof renderSellerReviews === 'function') renderSellerReviews();
       }
     } catch (e) { /* нет сети — покажем то, что есть */ }
   })();
   return reviewsReady;
 }
 
-// Резервный режим (пока Supabase не подключён): отзывы только в этом браузере.
+// Резервный режим (пока сервер недоступен): отзывы только в этом браузере.
 function loadReviews() {
   try { return JSON.parse(localStorage.getItem('ayana_reviews_v2') || '[]'); } catch(e) { return []; }
 }
+
 function saveReviews(reviews) {
   try { localStorage.setItem('ayana_reviews_v2', JSON.stringify(reviews)); } catch(e) {}
   updateStats();
 }
 
-// Отзывы, добавленные вручную прямо в код (необязательно).
+// Отзывы, добавленные вручную прямо в код (необязательно), например:
+// { name: "Имя", text_ru: "Текст на русском", text_en: "Text in English", rating: 5 },
 const approvedReviews = [
-  // { name: "Имя Фамилия", text: "Отличная книга, спасибо!", rating: 5 },
 ];
 
 function getAllReviews() {
-  return approvedReviews.concat(reviewsConfigured() ? sharedReviews : loadReviews());
+  return approvedReviews.concat(reviewsApiOk ? sharedReviews : loadReviews());
 }
 
-let reviewSending = false;
+// ============ АВТОПЕРЕВОД ОТЗЫВОВ ============
+// Когда человек пишет отзыв на русской версии сайта, он автоматически
+// переводится на английский — и наоборот. Перевод делает бесплатный сервис
+// MyMemory (без регистрации, без ключей). Если сервис недоступен или текст
+// слишком длинный — отзыв всё равно сохраняется, просто без перевода
+// (на другом языке покажется оригинальный текст).
+async function translateText(text, sourceLang, targetLang) {
+  try {
+    const params = new URLSearchParams({ q: text, langpair: `${sourceLang}|${targetLang}` });
+    const res = await fetch(`https://api.mymemory.translated.net/get?${params}`);
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (data && data.responseData && data.responseData.translatedText) {
+      return data.responseData.translatedText;
+    }
+    return null;
+  } catch (e) {
+    return null;
+  }
+}
+
 async function submitReview() {
-  if (reviewSending) return;
+  const ru = currentLang === 'ru';
   const name = document.getElementById('review-name').value.trim().slice(0, 60);
   const text = document.getElementById('review-text').value.trim().slice(0, 1000);
-  const ru = currentLang === 'ru';
   if (selectedRating === 0) { alert(ru ? 'Поставьте оценку от 1 до 5 звёзд' : 'Please rate from 1 to 5 stars'); return; }
   if (!name || !text) { alert(ru ? 'Заполните имя и текст отзыва' : 'Please fill in name and text'); return; }
 
-  // Простая защита от случайного спама: не чаще одного отзыва в 30 секунд с одного устройства.
-  try {
-    const last = Number(localStorage.getItem('ayana_last_review_ts') || 0);
-    if (Date.now() - last < 30000) {
-      alert(ru ? 'Подождите немного перед отправкой следующего отзыва.' : 'Please wait a bit before sending another review.');
-      return;
-    }
-  } catch (e) {}
-
-  const review = { name, text, rating: selectedRating };
+  const submitBtn = document.querySelector('button[onclick="submitReview()"]');
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+  if (submitBtn) {
+    if (submitBtn.disabled) return;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = ru ? 'Отправляем отзыв…' : 'Sending review…';
+  }
+  const restoreBtn = () => { if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalBtnText; } };
   const star = "<span class='icon icon-star' role='img' aria-label='звезда'></span>";
 
   if (reviewsReady) { try { await reviewsReady; } catch (e) {} }
-  if (reviewsConfigured()) {
-    reviewSending = true;
+
+  const otherLang = ru ? 'en' : 'ru';
+  const translated = await translateText(text, currentLang, otherLang);
+  const review = {
+    name,
+    rating: selectedRating,
+    text_ru: ru ? text : (translated || text),
+    text_en: !ru ? text : (translated || text),
+    autoTranslated: !!translated
+  };
+
+  if (reviewsApiOk) {
     try {
       const res = await fetch('/api/reviews', {
         method: 'POST',
@@ -1394,18 +1611,17 @@ async function submitReview() {
         body: JSON.stringify(review)
       });
       if (res.status === 429) {
-        reviewSending = false;
+        restoreBtn();
         showToast(ru ? 'Подождите немного перед отправкой следующего отзыва.' : 'Please wait a bit before sending another review.');
         return;
       }
       if (!res.ok) throw new Error('HTTP ' + res.status);
       sharedReviews.push(await res.json());
     } catch (e) {
-      reviewSending = false;
+      restoreBtn();
       showToast(ru ? 'Не удалось отправить отзыв. Проверьте интернет и попробуйте ещё раз.' : 'Could not send the review. Check your connection and try again.');
       return;
     }
-    reviewSending = false;
     showToast(ru ? 'Спасибо за отзыв! Он опубликован и виден всем посетителям ' + star : 'Thank you! Your review is now visible to everyone ' + star);
   } else {
     const reviews = loadReviews();
@@ -1414,11 +1630,11 @@ async function submitReview() {
     showToast(ru ? 'Спасибо за отзыв! (Пока он виден только в этом браузере.) ' + star : 'Thank you! (For now it is visible only in this browser.) ' + star);
   }
 
-  try { localStorage.setItem('ayana_last_review_ts', String(Date.now())); } catch (e) {}
   document.getElementById('review-name').value = '';
   document.getElementById('review-text').value = '';
   selectedRating = 0;
   document.querySelectorAll('#star-rating .star').forEach(s => s.classList.remove('selected'));
+  restoreBtn();
   renderReviews();
 }
 
@@ -1430,12 +1646,13 @@ function renderReviews() {
     container.innerHTML = `<div class="no-reviews-msg">${i18n[currentLang].no_reviews}</div>`;
   } else {
     container.innerHTML = `<div class="testimonials-grid">` + reviews.slice(-6).reverse().map(r => {
+      const text = currentLang === 'ru' ? (r.text_ru || r.text_en || r.text) : (r.text_en || r.text_ru || r.text);
       const rating = Math.min(5, Math.max(1, parseInt(r.rating, 10) || 5));
       return `
       <div class="testimonial-card">
         <div class="testimonial-stars">${'★'.repeat(rating)}${'☆'.repeat(5 - rating)}</div>
-        <div class="testimonial-text">${escapeHtml(r.text)}</div>
-        <div class="testimonial-author">— ${escapeHtml(r.name)}</div>
+        <div class="testimonial-text">${escapeHtml(text || '')}</div>
+        <div class="testimonial-author">— ${escapeHtml(r.name || '')}</div>
       </div>`;
     }).join('') + `</div>`;
   }
@@ -1444,7 +1661,7 @@ function renderReviews() {
 
 // ============ STATS ============
 function updateStats() {
-  const sold = books.filter(b => b.sold).length;
+  const sold = salesRecords.filter(r => r.confirmed).length;
   document.getElementById('stat-sold').textContent = sold;
   document.getElementById('stat-catalog').textContent = books.length;
   document.getElementById('stat-trees').textContent = (sold * 0.1).toFixed(1);
@@ -1647,16 +1864,368 @@ function showToast(message) {
   setTimeout(() => toast.remove(), 2500);
 }
 
+// ============ ПАНЕЛЬ ПРОДАВЦА: ВХОД ============
+// Пароль проверяется на сервере (переменная ADMIN_KEY в настройках Netlify),
+// а не хранится в коде страницы. После 8 неверных попыток вход блокируется на 10 минут.
+function openSellerLogin() {
+  document.getElementById('seller-login-error').style.display = 'none';
+  document.getElementById('seller-password-input').value = '';
+  document.getElementById('seller-login-overlay').classList.add('open');
+}
+
+function closeSellerLogin() {
+  document.getElementById('seller-login-overlay').classList.remove('open');
+}
+
+function isSellerAuthed() {
+  return !!getSellerKey();
+}
+
+async function verifySellerKey() {
+  try {
+    const r = await fetch('/api/login', { method: 'POST', headers: sellerHeaders() });
+    return r.ok;
+  } catch (e) { return false; }
+}
+
+async function submitSellerLogin(event) {
+  event.preventDefault();
+  const ru = currentLang === 'ru';
+  const input = document.getElementById('seller-password-input').value;
+  const err = document.getElementById('seller-login-error');
+  err.style.display = 'none';
+  try {
+    const r = await fetch('/api/login', { method: 'POST', headers: { 'x-admin-key': input } });
+    if (r.ok) {
+      try { sessionStorage.setItem(SELLER_KEY_NAME, input); } catch (e) {}
+      closeSellerLogin();
+      await fetchSales();
+      openSellerPanel();
+      return;
+    }
+    err.textContent = r.status === 429
+      ? (ru ? 'Слишком много попыток. Подождите 10 минут.' : 'Too many attempts. Please wait 10 minutes.')
+      : r.status === 503
+        ? (ru ? 'Пароль продавца ещё не задан: добавьте переменную ADMIN_KEY в настройках Netlify.' : 'Seller password is not set yet: add the ADMIN_KEY variable in Netlify settings.')
+        : i18n[currentLang].seller_wrong_password;
+  } catch (e) {
+    err.textContent = ru ? 'Нет связи с сервером. Попробуйте ещё раз.' : 'No connection to the server. Please try again.';
+  }
+  err.style.display = 'block';
+}
+
+async function openSellerEntry() {
+  if (!isSellerAuthed()) { openSellerLogin(); return; }
+  if (await verifySellerKey()) {
+    await fetchSales();
+    openSellerPanel();
+  } else {
+    clearSellerKey();
+    openSellerLogin();
+  }
+}
+
+// ============ ПАНЕЛЬ ПРОДАВЦА: ОСНОВНОЕ ОКНО ============
+function openSellerPanel() {
+  renderSellerBookList();
+  renderSellerReviews();
+  document.getElementById('seller-panel-overlay').classList.add('open');
+  fetchSharedReviews();
+}
+
+function closeSellerPanel() {
+  document.getElementById('seller-panel-overlay').classList.remove('open');
+}
+
+function logoutSeller() {
+  clearSellerKey();
+  closeSellerPanel();
+  fetchSales(); // снова показываем только публичные данные
+}
+
+function renderSellerBookList() {
+  const el = document.getElementById('seller-book-list');
+  if (!el) return;
+  el.innerHTML = books.map(book => {
+    const title = currentLang === 'ru' ? book.title_ru : book.title_en;
+    const sold = isBookSold(book.id);
+    const actionBtn = sold
+      ? `<button class="seller-mini-btn" onclick="openSaleForm(${book.id})">${i18n[currentLang].seller_edit_btn}</button>`
+      : `<button class="seller-mini-btn primary" onclick="openSaleForm(${book.id})">${i18n[currentLang].seller_confirm_btn}</button>`;
+    return `<div class="seller-book-row">
+      <div class="seller-book-row-info">
+        <strong>${title}</strong>
+        <span class="seller-status ${sold ? 'is-sold' : 'is-available'}">${sold ? '🟢 ' + i18n[currentLang].seller_status_sold : i18n[currentLang].seller_status_available}</span>
+      </div>
+      ${actionBtn}
+    </div>`;
+  }).join('');
+}
+
+// ---------- отзывы в панели: можно удалять ненужные ----------
+function renderSellerReviews() {
+  const el = document.getElementById('seller-reviews-list');
+  if (!el) return;
+  const ru = currentLang === 'ru';
+  if (!reviewsApiOk) {
+    el.innerHTML = `<p style="font-size:13px;color:#837c72;">${ru ? 'Отзывы с сервера недоступны.' : 'Reviews from the server are unavailable.'}</p>`;
+    return;
+  }
+  const list = sharedReviews.slice().reverse();
+  if (list.length === 0) {
+    el.innerHTML = `<p style="font-size:13px;color:#837c72;">${i18n[currentLang].seller_reviews_empty}</p>`;
+    return;
+  }
+  el.innerHTML = list.map(r => {
+    const rating = Math.min(5, Math.max(1, parseInt(r.rating, 10) || 5));
+    const text = ru ? (r.text_ru || r.text_en) : (r.text_en || r.text_ru);
+    return `<div class="seller-book-row">
+      <div class="seller-book-row-info">
+        <strong>${escapeHtml(r.name || '')}</strong> <span style="color:#c9a227;">${'★'.repeat(rating)}</span>
+        <span style="display:block;font-size:13px;color:#665f56;">${escapeHtml(text || '')}</span>
+      </div>
+      <button class="seller-mini-btn" style="color: var(--rust); border-color: var(--rust);" onclick="deleteReview('${escapeHtml(r.id)}')">${i18n[currentLang].seller_review_delete}</button>
+    </div>`;
+  }).join('');
+}
+
+async function deleteReview(id) {
+  const ru = currentLang === 'ru';
+  if (!confirm(ru ? 'Удалить этот отзыв насовсем?' : 'Delete this review permanently?')) return;
+  try {
+    const r = await fetch('/api/reviews?id=' + encodeURIComponent(id), { method: 'DELETE', headers: sellerHeaders() });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    await fetchSharedReviews();
+    showToast(ru ? 'Отзыв удалён ✓' : 'Review deleted ✓');
+  } catch (e) {
+    showToast(ru ? 'Не удалось удалить отзыв.' : 'Could not delete the review.');
+  }
+}
+
+// ============ ПАНЕЛЬ ПРОДАВЦА: ФОРМА ПРОДАЖИ ============
+// Скриншоты, чеки и переписка (PNG, JPG, WebP или PDF, до 5 МБ каждый) хранятся
+// на сервере и видны ТОЛЬКО продавцу после ввода пароля. На сайте не публикуются.
+const ATTACH_MAX_BYTES = 5 * 1024 * 1024;
+const ATTACH_ALLOWED = ['image/png', 'image/jpeg', 'image/webp', 'application/pdf'];
+// массив файлов формы: { existing:true, id, name, type } (уже на сервере) или
+// { name, type, file, dataUrl } (выбраны сейчас, ещё не загружены)
+let sellerFormAttachments = [];
+let sellerFormRemovedIds = [];
+let sellerFormBookId = null;
+
+async function getAttachments(bookId) {
+  try {
+    const r = await fetch('/api/attachments?bookId=' + encodeURIComponent(bookId), { headers: sellerHeaders() });
+    if (!r.ok) return [];
+    const rows = await r.json();
+    return rows.map(f => ({ existing: true, id: f.id, name: f.name, type: f.type, size: f.size }));
+  } catch (e) { return []; }
+}
+
+async function openSaleForm(bookId) {
+  const book = books.find(b => b.id === bookId);
+  if (!book) return;
+  sellerFormBookId = bookId;
+  sellerFormRemovedIds = [];
+  const existing = getSaleRecord(bookId);
+  const title = currentLang === 'ru' ? book.title_ru : book.title_en;
+
+  document.getElementById('seller-form-book-title').textContent = title;
+  document.getElementById('seller-form-price').value = existing ? existing.price : book.price;
+  document.getElementById('seller-form-date').value = existing ? existing.date : new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+  document.getElementById('seller-form-buyer').value = existing ? existing.buyerInitials : '';
+  document.getElementById('seller-form-order').value = existing ? existing.orderNumber : nextOrderNumber();
+  document.getElementById('seller-form-payment').value = existing ? existing.paymentMethod : 'kaspi_pay';
+  document.getElementById('seller-screenshot-input').value = '';
+
+  document.getElementById('seller-cancel-sale-btn').style.display = existing ? 'block' : 'none';
+  document.getElementById('seller-form-overlay').classList.add('open');
+
+  const previewEl = document.getElementById('seller-screenshot-preview');
+  if (previewEl) previewEl.innerHTML = `<span style="font-size:12.5px;color:#9b9184;">${currentLang === 'ru' ? 'Загрузка вложений…' : 'Loading attachments…'}</span>`;
+  sellerFormAttachments = existing ? await getAttachments(bookId) : [];
+  renderScreenshotPreview();
+}
+
+function closeSaleForm() {
+  document.getElementById('seller-form-overlay').classList.remove('open');
+  sellerFormAttachments = [];
+  sellerFormRemovedIds = [];
+  sellerFormBookId = null;
+}
+
+// Можно выбрать сразу несколько файлов (PNG, JPG, WebP или PDF) за один раз.
+function handleScreenshotUpload(event) {
+  const files = Array.from(event.target.files || []);
+  if (files.length === 0) return;
+  const ru = currentLang === 'ru';
+  files.forEach(file => {
+    if (!ATTACH_ALLOWED.includes(file.type)) {
+      showToast(ru ? `Файл «${escapeHtml(file.name)}» пропущен — поддерживаются только PNG, JPG, WebP и PDF.` : `File "${escapeHtml(file.name)}" skipped — only PNG, JPG, WebP and PDF are supported.`);
+      return;
+    }
+    if (file.size > ATTACH_MAX_BYTES) {
+      showToast(ru ? `Файл «${escapeHtml(file.name)}» пропущен — он больше 5 МБ.` : `File "${escapeHtml(file.name)}" skipped — it is larger than 5 MB.`);
+      return;
+    }
+    const entry = { name: file.name, type: file.type, file, dataUrl: '' };
+    sellerFormAttachments.push(entry);
+    if (file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = function(e) { entry.dataUrl = e.target.result; renderScreenshotPreview(); };
+      reader.readAsDataURL(file);
+    }
+  });
+  renderScreenshotPreview();
+  event.target.value = '';
+}
+
+function removeAttachment(index) {
+  const item = sellerFormAttachments[index];
+  if (item && item.existing) sellerFormRemovedIds.push(item.id);
+  sellerFormAttachments.splice(index, 1);
+  renderScreenshotPreview();
+}
+
+// Открыть вложение в новой вкладке (чтобы показать, что написано в чеке или переписке).
+async function openAttachment(index) {
+  const item = sellerFormAttachments[index];
+  if (!item) return;
+  const w = window.open('', '_blank');
+  try {
+    let blob;
+    if (item.existing) {
+      const r = await fetch('/api/attachments?id=' + encodeURIComponent(item.id), { headers: sellerHeaders() });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      blob = await r.blob();
+    } else {
+      blob = item.file;
+    }
+    const url = URL.createObjectURL(blob);
+    if (w) { w.location = url; }
+    else { const a = document.createElement('a'); a.href = url; a.download = item.name; a.click(); }
+  } catch (e) {
+    if (w) w.close();
+    showToast(currentLang === 'ru' ? 'Не удалось открыть файл.' : 'Could not open the file.');
+  }
+}
+
+function renderScreenshotPreview() {
+  const el = document.getElementById('seller-screenshot-preview');
+  if (!el) return;
+  if (sellerFormAttachments.length === 0) {
+    el.innerHTML = '';
+    return;
+  }
+  el.innerHTML = sellerFormAttachments.map((att, i) => {
+    const isImage = att.type.startsWith('image/') && att.dataUrl;
+    const safeName = escapeHtml(att.name);
+    const thumb = isImage
+      ? `<img src="${att.dataUrl}" alt="${safeName}">`
+      : `<div class="seller-file-chip">📄 ${safeName}</div>`;
+    const viewLabel = currentLang === 'ru' ? 'Открыть' : 'Open';
+    return `<div class="seller-attachment-item">
+      <a href="javascript:void(0)" onclick="openAttachment(${i})" title="${viewLabel}: ${safeName}" style="flex:1; display:flex; align-items:center; gap:10px; min-width:0;">${thumb}</a>
+      <button type="button" class="seller-mini-btn" onclick="removeAttachment(${i})">${i18n[currentLang].seller_form_screenshot_remove}</button>
+    </div>`;
+  }).join('');
+}
+
+async function submitSaleForm(event) {
+  event.preventDefault();
+  const ru = currentLang === 'ru';
+  const book = books.find(b => b.id === sellerFormBookId);
+  if (!book) return;
+
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = ru ? 'Сохраняем…' : 'Saving…';
+  }
+  const restoreBtn = () => { if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = originalBtnText; } };
+
+  const price = parseInt(document.getElementById('seller-form-price').value, 10) || book.price;
+  const date = document.getElementById('seller-form-date').value;
+  const buyerInitials = document.getElementById('seller-form-buyer').value.trim();
+  const orderNumber = document.getElementById('seller-form-order').value.trim() || nextOrderNumber();
+  const paymentMethod = document.getElementById('seller-form-payment').value;
+
+  try {
+    const r = await fetch('/api/sales', {
+      method: 'POST',
+      headers: sellerHeaders({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify({ bookId: book.id, price, date, buyerInitials, orderNumber, paymentMethod })
+    });
+    if (r.status === 403 || r.status === 429) {
+      clearSellerKey();
+      restoreBtn();
+      alert(ru ? 'Сессия панели истекла или пароль неверный. Войдите в панель заново.' : 'The panel session expired or the password is wrong. Please log in again.');
+      closeSaleForm(); closeSellerPanel();
+      return;
+    }
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+  } catch (e) {
+    restoreBtn();
+    alert(ru ? 'Не удалось сохранить продажу. Проверьте интернет и попробуйте ещё раз.' : 'Could not save the sale. Check your connection and try again.');
+    return;
+  }
+
+  // Файлы: сначала удаляем убранные, затем загружаем новые.
+  const problems = [];
+  for (const id of sellerFormRemovedIds) {
+    try { await fetch('/api/attachments?id=' + encodeURIComponent(id), { method: 'DELETE', headers: sellerHeaders() }); }
+    catch (e) { problems.push(ru ? 'Не удалось удалить файл.' : 'Could not delete a file.'); }
+  }
+  for (const att of sellerFormAttachments.filter(a => !a.existing)) {
+    try {
+      const r = await fetch('/api/attachments?bookId=' + encodeURIComponent(book.id), {
+        method: 'POST',
+        headers: sellerHeaders({ 'Content-Type': att.type, 'x-file-name': encodeURIComponent(att.name) }),
+        body: att.file
+      });
+      if (!r.ok) problems.push(`«${att.name}»: ${ru ? 'не удалось загрузить' : 'upload failed'}`);
+    } catch (e) { problems.push(`«${att.name}»: ${ru ? 'нет связи с сервером' : 'no connection'}`); }
+  }
+
+  restoreBtn();
+  closeSaleForm();
+  await fetchSales();
+  renderSellerBookList();
+  showToast(ru ? 'Продажа подтверждена ✓' : 'Sale confirmed ✓');
+  if (problems.length) alert((ru ? 'Продажа сохранена, но:\n' : 'The sale is saved, but:\n') + problems.join('\n'));
+}
+
+async function cancelSale(bookId) {
+  const ru = currentLang === 'ru';
+  const confirmMsg = ru
+    ? 'Отменить продажу этой книги? Она снова станет доступна для покупки, а прикреплённые файлы будут удалены.'
+    : 'Cancel this sale? The book will become available again and the attached files will be deleted.';
+  if (!confirm(confirmMsg)) return;
+  try {
+    const r = await fetch('/api/sales?bookId=' + encodeURIComponent(bookId), { method: 'DELETE', headers: sellerHeaders() });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+  } catch (e) {
+    alert(ru ? 'Не удалось отменить продажу.' : 'Could not cancel the sale.');
+    return;
+  }
+  closeSaleForm();
+  await fetchSales();
+  renderSellerBookList();
+}
+
 // ============ INIT ============
 document.addEventListener('DOMContentLoaded', function() {
   renderBooks();
   renderChecklist();
   renderQuizSelect();
   renderReviews();
-  fetchSharedReviews();
+  renderSalesLog();
   updateCartBadge();
   updateStats();
   loadSiteStats();
   trackVisit();
+  fetchSales();
+  fetchSharedReviews();
   setLanguage('ru');
 });

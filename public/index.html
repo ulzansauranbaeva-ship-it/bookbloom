@@ -3,15 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BookBloom: Книги с новой историей</title>
-  <meta name="description" content="BookBloom — прочитанные книги по доступным ценам (максимум 1 500 ₸). Книги с новой историей. Экономим деньги — бережём леса.">
-  <meta property="og:title" content="BookBloom: книги с новой историей">
-  <meta property="og:description" content="Прочитанные книги по доступным ценам (максимум 1 500 ₸). Экологичный проект школьницы из Астаны.">
+  <title>BookBloom — книжный проект Алдибек Аяны | Книги с новой историей</title>
+  <meta name="description" content="BookBloom — проект Алдибек Аяны Бауыржанқызы. Прочитанные книги по доступным ценам (максимум 1 500 ₸). Книги с новой историей. Экономим деньги — бережём леса.">
+  <meta name="keywords" content="BookBloom, Алдибек Аяна, книги Астана, книги 9-10 класс, Гарри Поттер книги, эко книги Казахстан">
+  <meta property="og:title" content="BookBloom — книжный проект Алдибек Аяны">
+  <meta property="og:description" content="Прочитанные книги по доступным ценам (максимум 1 500 ₸). Экологичный проект школьницы Алдибек Аяны из Астаны.">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
-  <!-- ЗНАЧОК САЙТА (favicon): вставьте сюда ссылку на свою картинку -->
-  <link rel="icon" href="">
+  <!-- ВАЖНО ДЛЯ ПОИСКОВИКОВ: как только сайт получит постоянный адрес
+       (например, после регистрации на Netlify или через GitHub Pages),
+       впишите его в href ниже вместо примера — это помогает Google понять,
+       какой адрес сайта главный и настоящий. -->
+  <link rel="canonical" href="https://bookbloom-ayana.example.com/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📚%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="style.css">
+  <!-- СТРУКТУРИРОВАННЫЕ ДАННЫЕ ДЛЯ GOOGLE: помогает поисковику понять,
+       что сайт BookBloom связан именно с именем "Алдибек Аяна Бауыржанқызы",
+       чтобы он находился по обоим словам сразу. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "BookBloom",
+    "alternateName": "BookBloom Алдибек Аяна",
+    "description": "Книжный проект Алдибек Аяны Бауыржанқызы — прочитанные книги для 9-10 классов и серия Гарри Поттер по доступным ценам.",
+    "founder": {
+      "@type": "Person",
+      "name": "Алдибек Аяна Бауыржанқызы"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -71,10 +92,6 @@
       <span data-i18n="stat_visits">Заходили на сайт</span>
     </div>
     <div class="stat-item">
-      <strong id="stat-inquiries">—</strong>
-      <span data-i18n="stat_inquiries">Оформили заказ через сайт</span>
-    </div>
-    <div class="stat-item">
       <strong id="stat-sold">0</strong>
       <span data-i18n="stat_sold">Книг куплено (подтверждено)</span>
     </div>
@@ -88,7 +105,7 @@
     </div>
   </div>
   <div class="stats-note" data-i18n="stats_note">
-    Счётчики «Заходили на сайт» и «Оформили заказ» считаются автоматически. «Книг куплено» — только подтверждённые продажи, проверенные вручную.
+    Счётчик «Заходили на сайт» считается автоматически. «Книг куплено» — только подтверждённые продажи, проверенные вручную.
   </div>
 
   <!-- ABOUT -->
@@ -397,6 +414,7 @@
     </div>
     <div class="review-form-card">
       <h3 style="margin: 0 0 15px 0; font: normal 20px 'Times New Roman', serif; color: var(--ink);" data-i18n="review_form_title">Оставить отзыв</h3>
+      <p style="font-size: 12px; color: #9b9184; margin: -10px 0 15px;" data-i18n="review_translate_note">Отзыв автоматически переводится на другой язык сайта.</p>
       <div style="margin-bottom: 15px;">
         <label style="font-weight: bold; font-size: 14px;" data-i18n="review_rating_label">Ваша оценка:</label>
         <div class="star-rating" id="star-rating">
@@ -543,6 +561,9 @@
         <span data-i18n="footer_trusted_qr">Написать доверенному лицу (Улжан)</span>
       </a>
     </div>
+    <div style="margin-top: 18px;">
+      <a href="javascript:void(0)" onclick="openSellerEntry()" style="color: rgba(255,255,255,0.55); font-size: 12px; text-decoration: underline;" data-i18n="seller_panel_link">🔒 Панель продавца</a>
+    </div>
   </footer>
 
   <button class="scroll-top-btn" id="scroll-top-btn" onclick="scrollToTop()" aria-label="Наверх"><span class='icon icon-arrowup' role='img' aria-label='наверх'></span></button>
@@ -564,6 +585,124 @@
         <button class="primary cart-checkout-btn" onclick="checkoutCart()" data-i18n="cart_checkout"><span class='icon icon-chat' role='img' aria-label='сообщение'></span> Оформить заказ в WhatsApp</button>
         <button class="cart-clear-btn" onclick="clearCart()" data-i18n="cart_clear">Очистить корзину</button>
       </div>
+    </div>
+  </div>
+
+  <!-- PUBLIC SALE INFO POPUP -->
+  <div class="cart-overlay" id="sale-popup-overlay" onclick="if(event.target===this) closeSalePopup()">
+    <div class="cart-modal" style="max-width: 380px;">
+      <div class="cart-modal-header">
+        <h3 data-i18n="sale_popup_title">Информация о продаже</h3>
+        <button class="cart-close-btn" onclick="closeSalePopup()"><span class='icon icon-close' role='img' aria-label='закрыть'></span></button>
+      </div>
+      <div class="cart-modal-body">
+        <p style="font-weight: bold; margin-bottom: 14px;" id="sale-popup-book"></p>
+        <div class="sale-popup-row"><span data-i18n="sale_popup_date">Дата продажи:</span> <strong id="sale-popup-date-val"></strong></div>
+        <div class="sale-popup-row"><span data-i18n="sale_popup_price">Сумма:</span> <strong id="sale-popup-price-val"></strong></div>
+        <div class="sale-popup-row"><span data-i18n="sale_popup_order">№ заказа:</span> <strong id="sale-popup-order-val"></strong></div>
+        <div class="sale-popup-status" data-i18n="sale_popup_status">🟢 Продажа подтверждена</div>
+      </div>
+      <div class="cart-modal-footer">
+        <button class="cart-clear-btn" onclick="closeSalePopup()" data-i18n="sale_popup_close">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELLER PANEL: LOGIN -->
+  <div class="cart-overlay" id="seller-login-overlay" onclick="if(event.target===this) closeSellerLogin()">
+    <div class="cart-modal" style="max-width: 380px;">
+      <div class="cart-modal-header">
+        <h3 data-i18n="seller_login_title">Вход в панель продавца</h3>
+        <button class="cart-close-btn" onclick="closeSellerLogin()"><span class='icon icon-close' role='img' aria-label='закрыть'></span></button>
+      </div>
+      <form onsubmit="submitSellerLogin(event)">
+        <div class="cart-modal-body">
+          <p style="font-size: 13.5px; color: #665f56; margin-bottom: 14px;" data-i18n="seller_login_text">Здесь создатель сайта вручную подтверждает реальные продажи книг. Введите пароль, чтобы продолжить.</p>
+          <input type="password" id="seller-password-input" class="seller-input" data-i18n-ph="seller_password_ph" placeholder="Пароль" required>
+          <p id="seller-login-error" style="display:none; color: var(--rust); font-size: 13px; margin-top: 10px;" data-i18n="seller_wrong_password">Неверный пароль. Попробуйте ещё раз.</p>
+        </div>
+        <div class="cart-modal-footer">
+          <button type="submit" class="primary cart-checkout-btn" data-i18n="seller_login_btn">Войти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SELLER PANEL: MAIN -->
+  <div class="cart-overlay" id="seller-panel-overlay" onclick="if(event.target===this) closeSellerPanel()">
+    <div class="cart-modal" style="max-width: 620px;">
+      <div class="cart-modal-header">
+        <h3 data-i18n="seller_panel_title">🔒 Панель продавца</h3>
+        <button class="cart-close-btn" onclick="closeSellerPanel()"><span class='icon icon-close' role='img' aria-label='закрыть'></span></button>
+      </div>
+      <div class="cart-modal-body">
+        <p style="font-size: 13px; color: #665f56; margin-bottom: 16px;" data-i18n="seller_panel_intro">Здесь фиксируются только фактически подтверждённые продажи — после того как покупатель реально оплатил книгу. Обращение в WhatsApp само по себе НЕ делает книгу «проданной».</p>
+
+        <div id="seller-book-list" class="seller-book-list"></div>
+
+        <div class="seller-code-section">
+          <h4 data-i18n="seller_reviews_title">Отзывы посетителей</h4>
+          <div id="seller-reviews-list"></div>
+        </div>
+      </div>
+      <div class="cart-modal-footer">
+        <button class="cart-clear-btn" onclick="logoutSeller()" data-i18n="seller_logout_btn">Выйти из панели</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SELLER PANEL: SALE FORM -->
+  <div class="cart-overlay" id="seller-form-overlay" onclick="if(event.target===this) closeSaleForm()">
+    <div class="cart-modal" style="max-width: 440px;">
+      <div class="cart-modal-header">
+        <h3 data-i18n="seller_form_title">Подтверждение продажи</h3>
+        <button class="cart-close-btn" onclick="closeSaleForm()"><span class='icon icon-close' role='img' aria-label='закрыть'></span></button>
+      </div>
+      <form onsubmit="submitSaleForm(event)">
+        <div class="cart-modal-body">
+          <div class="seller-field">
+            <label data-i18n="seller_form_book">Книга</label>
+            <p id="seller-form-book-title" style="font-weight: bold;"></p>
+          </div>
+          <div class="seller-field">
+            <label data-i18n="seller_form_price">Цена, ₸</label>
+            <input type="number" id="seller-form-price" class="seller-input" min="0" required>
+          </div>
+          <div class="seller-field">
+            <label data-i18n="seller_form_date">Дата продажи</label>
+            <input type="date" id="seller-form-date" class="seller-input" required>
+          </div>
+          <div class="seller-field">
+            <label data-i18n="seller_form_buyer">Инициалы покупателя</label>
+            <input type="text" id="seller-form-buyer" class="seller-input" data-i18n-ph="seller_form_buyer_hint" placeholder="Например: «А. К.»">
+            <small style="color: #837c72;" data-i18n="seller_form_buyer_hint">Например: «А. К.» — не указывайте полное имя.</small>
+          </div>
+          <div class="seller-field">
+            <label data-i18n="seller_form_order">Номер заказа</label>
+            <input type="text" id="seller-form-order" class="seller-input" required>
+          </div>
+          <div class="seller-field">
+            <label data-i18n="seller_form_payment">Способ оплаты</label>
+            <select id="seller-form-payment" class="seller-input">
+              <option value="kaspi_pay" data-i18n="payment_kaspi_pay">Kaspi Pay</option>
+              <option value="kaspi_transfer" data-i18n="payment_kaspi_transfer">Kaspi перевод</option>
+              <option value="cash" data-i18n="payment_cash">Наличные</option>
+              <option value="other" data-i18n="payment_other">Другое</option>
+            </select>
+          </div>
+          <div class="seller-field">
+            <label data-i18n="seller_form_screenshot">Скриншот оплаты / переписки (необязательно)</label>
+            <input type="file" id="seller-screenshot-input" accept="image/png,image/jpeg,image/webp,application/pdf" multiple onchange="handleScreenshotUpload(event)">
+            <small style="color: #837c72;" data-i18n="seller_form_screenshot_hint">Можно прикрепить сразу несколько файлов — PNG, JPG или PDF (до 5 МБ каждый). Хранятся на сервере и видны только вам после ввода пароля; на сайте никогда не публикуются — для показа на защите проекта.</small>
+            <div id="seller-screenshot-preview" class="seller-screenshot-preview"></div>
+          </div>
+        </div>
+        <div class="cart-modal-footer">
+          <button type="submit" class="primary cart-checkout-btn" data-i18n="seller_form_submit">Подтвердить продажу</button>
+          <button type="button" id="seller-cancel-sale-btn" class="cart-clear-btn" style="color: var(--rust); border-color: var(--rust); margin-bottom: 8px;" onclick="cancelSale(sellerFormBookId)" data-i18n="seller_cancel_sale_btn">Отменить продажу</button>
+          <button type="button" class="cart-clear-btn" onclick="closeSaleForm()" data-i18n="seller_form_cancel">Отмена</button>
+        </div>
+      </form>
     </div>
   </div>
 
